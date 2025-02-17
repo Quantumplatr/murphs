@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmy3kpxcpunip"]
 
 [ext_resource type="Script" path="res://scenes/terminal/windows/console/console.gd" id="1_4f6kj"]
-[ext_resource type="Script" path="res://effects/text/rich_text_encrypted.gd" id="2_6egbq"]
+[ext_resource type="Script" uid="uid://ckb3426j73ic7" path="res://effects/text/rich_text_encrypted.gd" id="2_6egbq"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_p0f2j"]
 script = ExtResource("2_6egbq")

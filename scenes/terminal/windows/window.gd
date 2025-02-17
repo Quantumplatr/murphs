@@ -1,23 +1,29 @@
+@tool
 extends MarginContainer
 
-@export var title: String = "Window"
+@export var title: String = "Window":
+	get:
+		return title
+	set(value):
+		title = value
+		text_width = default_font.get_string_size(title).x
+		custom_minimum_size = Vector2(offset*6+text_width, offset*6)
+		
 @export var thickness: int = 2
 @export var color: Color = Color.WHITE
 @export var show_background: bool = false
-@export var bg_color: Color = Color(0.1,0.1,0.1)
+@export var bg_color: Color = Color(0.038, 0.076, 0.086)
+#@export var bg_color: Color = Constants.MAIN_BG_COLOR
 
 #@export var offset: int = 10
 var offset: int = 10
 
-var default_font: Font
-var default_font_size: int
+var default_font: Font = ThemeDB.fallback_font
+var default_font_size: int = ThemeDB.fallback_font_size
 var text_width: int
 
 func _ready():
-	default_font = ThemeDB.fallback_font
-	default_font_size = ThemeDB.fallback_font_size
 	text_width = default_font.get_string_size(title).x
-	
 	custom_minimum_size = Vector2(offset*6+text_width, offset*6)
 
 func _draw():

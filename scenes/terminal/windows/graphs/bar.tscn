@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dusxqqeviocxc"]
 
-[ext_resource type="Script" path="res://scenes/terminal/windows/graphs/bar.gd" id="1_204lc"]
+[ext_resource type="Script" uid="uid://6ovdcxl7nk7c" path="res://scenes/terminal/windows/graphs/bar.gd" id="1_204lc"]
 
 [node name="Bar" type="VBoxContainer"]
 script = ExtResource("1_204lc")

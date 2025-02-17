@@ -4,12 +4,11 @@ extends VBoxContainer
 @onready var input: LineEdit = %Input
 @onready var prompt_lbl: RichTextLabel = %Prompt
 
-#const HOME = "user://"
 const HOME = "res://drive"
 
 var user: String = "0314"
 var computer: String = "murphs"
-var dir: DirAccess = DirAccess.open(HOME)
+var dir: DirAccess
 
 var history: Array[String] = []
 var history_index: int = -1
@@ -36,6 +35,7 @@ var commands: Dictionary = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	dir = DirAccess.open(HOME)
 	update_prompt()
 	display.append_text(welcome())
 
@@ -170,15 +170,7 @@ func show_history() -> String:
 	return "\n".join(history) + "\n"
 
 func welcome() -> String:
-	return """[b]+-------------------------------------+
-|                          _    _     |
-|   /\\/\\  _   _ _ __ _ __ | |__( )__  |
-|  /    \\| | | | '__| '_ \\| '_ \\/ __| |
-| / /\\/\\ \\ |_| | |  | |_) | | | \\__ \\ |
-| \\/    \\/\\__,_|_|  | .__/|_| |_|___/ |
-|                   |_|               |
-+-------------------------------------+[/b]
-Hello, employee [b]%s[/b]. Welcome to your first shift at [wave]Murph's[/wave].
+	return """Hello, employee [b]%s[/b]. Welcome to your first shift at [wave]Murph's[/wave].
 Your job is vital to the survival of the company. [i]Nothing can go wrong[/i]. If any
 of your stats drop to 0, well, let's just not let that happen.
 
@@ -187,4 +179,4 @@ Read through [u]README.txt[/u] with the cat command to learn more.
 """ % [user]
 
 func whoami() -> String:
-	return "%s" % user
+	return "%s\n" % user
