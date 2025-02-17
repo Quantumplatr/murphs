@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmy3kpxcpunip"]
+
+[ext_resource type="Script" path="res://scenes/terminal/windows/console/console.gd" id="1_4f6kj"]
+[ext_resource type="FontFile" uid="uid://bdxhppg2qnq32" path="res://assets/fonts/SpaceMono/SpaceMono-Regular.ttf" id="2_5gr27"]
+
+[node name="Console" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+offset_right = 72.0
+offset_bottom = 250.0
+alignment = 2
+script = ExtResource("1_4f6kj")
+
+[node name="Display" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_fonts/mono_font = ExtResource("2_5gr27")
+fit_content = true
+scroll_following = true
+
+[node name="Shell" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Prompt" type="Label" parent="Shell"]
+layout_mode = 2
+
+[node name="Input" type="LineEdit" parent="Shell"]
+layout_mode = 2
+
+[connection signal="text_submitted" from="Shell/Input" to="." method="_on_input_text_submitted"]

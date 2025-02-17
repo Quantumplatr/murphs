@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmy3kpxcpunip"]
+
+[ext_resource type="Script" path="res://scenes/terminal/windows/console/console.gd" id="1_4f6kj"]
+[ext_resource type="Script" path="res://effects/text/rich_text_encrypted.gd" id="2_6egbq"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_p0f2j"]
+script = ExtResource("2_6egbq")
+
+[node name="Console" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+offset_right = 43.0
+offset_bottom = 250.0
+script = ExtResource("1_4f6kj")
+
+[node name="Display" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+scroll_following = true
+custom_effects = [SubResource("RichTextEffect_p0f2j")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Shell" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Prompt" type="RichTextLabel" parent="Shell"]
+unique_name_in_owner = true
+layout_mode = 2
+fit_content = true
+autowrap_mode = 0
+
+[node name="Input" type="LineEdit" parent="Shell"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="gui_input" from="Shell/Input" to="." method="_on_input_gui_input"]
+[connection signal="text_submitted" from="Shell/Input" to="." method="_on_input_text_submitted"]

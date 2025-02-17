@@ -1,0 +1,34 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Murph's"
+run/main_scene="res://scenes/terminal/terminal.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[editor]
+
+export/convert_text_resources_to_binary=false
+
+[gui]
+
+theme/custom="res://assets/ui/main_theme.tres"
+theme/custom_font="res://assets/fonts/SpaceMono/SpaceMono-Regular.ttf"
+
+[richer_text_label]
+
+fonts={
+"AnonymousPro": "res://assets/fonts/Anonymous Pro/AnonymousPro-Regular.ttf",
+"AnonymousProItalic": "res://assets/fonts/Anonymous Pro/AnonymousPro-BoldItalic.ttf",
+"SpaceMono": "res://assets/fonts/SpaceMono/SpaceMono-Regular.ttf",
+"SpaceMonoItalic": "res://assets/fonts/SpaceMono/SpaceMono-BoldItalic.ttf"
+}

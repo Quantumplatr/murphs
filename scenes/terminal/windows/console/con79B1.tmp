@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmy3kpxcpunip"]
+
+[ext_resource type="Script" path="res://scenes/terminal/windows/console/console.gd" id="1_4f6kj"]
+[ext_resource type="Script" path="res://effects/text/rich_text_encrypted.gd" id="2_6egbq"]
+[ext_resource type="FontFile" uid="uid://bdxhppg2qnq32" path="res://assets/fonts/SpaceMono/SpaceMono-Regular.ttf" id="2_6ie0v"]
+
+[sub_resource type="FontVariation" id="FontVariation_dba6d"]
+base_font = ExtResource("2_6ie0v")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_jsrsh"]
+base_font = ExtResource("2_6ie0v")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_urc1e"]
+base_font = ExtResource("2_6ie0v")
+variation_embolden = 1.5
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_gmplg"]
+script = ExtResource("2_6egbq")
+
+[node name="Console" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+offset_right = 72.0
+offset_bottom = 250.0
+script = ExtResource("1_4f6kj")
+
+[node name="Display" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("2_6ie0v")
+theme_override_fonts/italics_font = SubResource("FontVariation_dba6d")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_jsrsh")
+theme_override_fonts/bold_font = SubResource("FontVariation_urc1e")
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+scroll_following = true
+custom_effects = [SubResource("RichTextEffect_gmplg")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Shell" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Prompt" type="RichTextLabel" parent="Shell"]
+unique_name_in_owner = true
+layout_mode = 2
+fit_content = true
+autowrap_mode = 0
+
+[node name="Input" type="LineEdit" parent="Shell"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="text_submitted" from="Shell/Input" to="." method="_on_input_text_submitted"]

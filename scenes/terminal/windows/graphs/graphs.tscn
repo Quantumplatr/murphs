@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://buk5cqlpcfcri"]
+
+[ext_resource type="PackedScene" uid="uid://dusxqqeviocxc" path="res://scenes/terminal/windows/graphs/bar.tscn" id="1_e4htp"]
+
+[node name="Graphs" type="HBoxContainer"]
+
+[node name="Hallucination" parent="." instance=ExtResource("1_e4htp")]
+layout_mode = 2
+
+[node name="Sleepiness" parent="." instance=ExtResource("1_e4htp")]
+layout_mode = 2
+title = "S"
+
+[node name="Luck" parent="." instance=ExtResource("1_e4htp")]
+layout_mode = 2
+title = "L"
+
+[node name="Anger" parent="." instance=ExtResource("1_e4htp")]
+layout_mode = 2
+title = "A"

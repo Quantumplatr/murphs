@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://2qyjmergbweq"]
+
+[ext_resource type="Script" path="res://scenes/terminal/windows/window.gd" id="1_k2ght"]
+
+[node name="Window" type="MarginContainer"]
+offset_right = 69.0
+offset_bottom = 34.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_k2ght")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dusxqqeviocxc"]
+
+[ext_resource type="Script" path="res://scenes/terminal/windows/graphs/bar.gd" id="1_204lc"]
+
+[node name="Bar" type="VBoxContainer"]
+script = ExtResource("1_204lc")
+title = "H"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(20, 100)
+layout_mode = 2
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "H"
+horizontal_alignment = 1

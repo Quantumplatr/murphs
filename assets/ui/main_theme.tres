@@ -1,0 +1,80 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://b34k7s50a0bf2"]
+
+[ext_resource type="Texture2D" uid="uid://cyamdvc86bxpv" path="res://assets/ui/window/border.png" id="1_fsn3a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icbmg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufgs4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8xpw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gigey"]
+texture = ExtResource("1_fsn3a")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuyre"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s0gk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1do7a"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.75, 0.75, 0.75, 0.75)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr4nn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ycgh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[resource]
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_icbmg")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_ufgs4")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_v8xpw")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_gigey")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_uuyre")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_8s0gk")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_1do7a")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_fr4nn")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_8ycgh")
