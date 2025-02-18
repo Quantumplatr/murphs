@@ -19,11 +19,16 @@ func get_text_server():
 	return TextServerManager.get_primary_interface()
 
 func _process_custom_fx(char_fx: CharFXTransform):
-	var decrypted = false
-	if decrypted:
-		char_fx.color = Color.GREEN
-		return true
+	var level = char_fx.env.get("level", Encryption.Levels.BASIC)
 	var speed = char_fx.env.get("speed", 10)
+	
+	# Check decryption
+	var decrypted = Encryption.unlocked[level as Encryption.Levels]
+	char_fx.color = Constants.ENCRYPTED_COLOR if decrypted else Constants.DECRYPTED_COLOR
+	if decrypted:
+		return true
+	
+	# Randomize character
 	var seed: int = floor(char_fx.elapsed_time * speed) # Get seed based on time
 	var rand: int = int(hash(seed * (char_fx.relative_index + 1))) # Use relative index to get random
 	var index: int = abs(rand % len(ENCRYPTION_CHARS)) # Turn into valid index

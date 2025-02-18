@@ -18,11 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constants="*res://autoloads/constants.tscn"
+Encryption="*res://autoloads/encryption.gd"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=768
+window/size/viewport_width=1080
+window/size/viewport_height=810
 
 [editor]
 

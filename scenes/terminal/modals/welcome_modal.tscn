@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg55p6cf1hale"]
+
+[ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_4wv1w"]
+[ext_resource type="Script" path="res://scenes/terminal/modals/welcome_modal.gd" id="1_jixnd"]
+
+[node name="WelcomeModal" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jixnd")
+
+[node name="Window" parent="." instance=ExtResource("1_4wv1w")]
+custom_minimum_size = Vector2(129, 60)
+layout_mode = 2
+title = "Welcome"
+color = Color(0.407332, 0.742735, 0.657785, 1)
+show_background = true
+
+[node name="Label" type="RichTextLabel" parent="Window"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b]                     _    _ 
+ /\\/\\  _   _ _ __ _ __ | |__( )__ 
+ /    \\| | | | '__| '_ \\| '_ \\/ __|
+/ /\\/\\ \\ |_| | |  | |_) | | | \\__ \\
+\\/    \\/\\__,_|_|  | .__/|_| |_|___/
+    |_|
+[/b]
+You have successfully logged into Murph's computer
+system as employee [b]0314[/b].
+
+Today is 3220-02-23.
+
+Press [wave][color=purple]<space>[/color][/wave] to get to work
+[/center]"
+fit_content = true
+autowrap_mode = 0

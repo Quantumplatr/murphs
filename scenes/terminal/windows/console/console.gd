@@ -13,6 +13,8 @@ var dir: DirAccess
 var history: Array[String] = []
 var history_index: int = -1
 
+var running: bool = false
+
 class Command:
 	var function: Callable
 	var help: String
@@ -29,6 +31,8 @@ var commands: Dictionary = {
 	"history": Command.new(show_history, "Displays command history"),
 	"ls": Command.new(ls, "Lists information about the files in the current directory"),
 	"pwd": Command.new(pwd, "Output current directory to console"),
+	"quit": Command.new(quit, "Quit your job (close the game)"),
+	"sudo": Command.new(sudo, "Decrypt encrypted secrets using a password"),
 	"welcome": Command.new(welcome, "Display the welcome text seen upon startup"),
 	"whoami": Command.new(whoami, "Shows the logged in user"),
 }
@@ -39,15 +43,30 @@ func _ready() -> void:
 	update_prompt()
 	display.append_text(welcome())
 
-# Called every frame. 'delta' is the elapsed time since the previous frame. 
-func _process(delta: float) -> void:
-	pass
-
 func _on_input_text_submitted(new_text: String) -> void:
+	# Don't run two at once
+	if running:
+		return
+	running = true
+	
+	input.text = "" # Clear input
 	display.append_text(prompt()) # Prompt w/ formatting
 	display.add_text(new_text + "\n") # User input w/ no formatting
-	display.append_text(run(new_text)) # Result w/ formatting
-	input.text = "" # Clear input
+	
+	# Result w/ formatting
+	# One line at a time
+	var output := run(new_text)
+	var lines := output.split("\n")
+	for i in len(lines):
+		var line := lines[i]
+		await get_tree().create_timer(Constants.PRINT_TIME).timeout
+		display.append_text("%s" % line)
+		# If not last line, add new line
+		if i < len(lines) - 1:
+			display.add_text("\n")
+	
+	# Done running
+	running = false
 
 func _on_input_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -135,48 +154,61 @@ func cd(input: String = "") -> String:
 	update_prompt()
 	return ""
 
-func clear() -> String:
+func clear(input: String = "") -> String:
 	display.clear()
 	return ""
 
-func help() -> String:
+func help(input: String = "") -> String:
 	var str: String = "Available commands:\n"
 	var keys: Array = commands.keys()
 	keys.sort()
 	for key in keys:
 		var command: Command = commands[key]
-		str += " - [color=pink]%s[/color]:\t%s\n" % [key, command.help]
+		str += " - [color=purple]%s[/color]:\t%s\n" % [key, command.help]
 	return str
 
-func ls() -> String:
+func ls(input: String = "") -> String:
 	var str: String = ""
 	var directories = dir.get_directories()
 	var files = dir.get_files()
 	for directory in directories:
 		if directory.begins_with("_"):
-			directory = "[encrypted]%s[/encrypted]" % directory
+			var level = Encryption.Levels.ADMIN if directory.begins_with("__") else Encryption.Levels.BASIC
+			directory = "[encrypted level=%d]%s[/encrypted]" % [level, directory]
 		str += "[color=steel_blue]%s[/color]/ " % directory
 	for file in files:
 		if file.begins_with("_"):
 			var file_parts = file.split(".")
-			file = "[encrypted]%s[/encrypted].%s" % [file_parts[0], file_parts[1]]
-		str += "[u]%s[/u] " % file
+			var level = Encryption.Levels.ADMIN if file.begins_with("__") else Encryption.Levels.BASIC
+			file = "[encrypted level=%d]%s[/encrypted].%s" % [level, file_parts[0], file_parts[1]]
+		str += "[i]%s[/i] " % file
 	return str + "\n"
 
-func pwd() -> String:
+func pwd(input: String = "") -> String:
 	return "[color=steel_blue]%s[/color]\n" % dir.get_current_dir().replace(HOME, "~")
 
-func show_history() -> String:
+func quit(input: String = "") -> String:
+	# TODO: save?
+	get_tree().quit()
+	return ""
+
+func sudo(input: String = "") -> String:
+	input = input.strip_edges()
+	return Encryption.unlock(input)
+
+func show_history(input: String = "") -> String:
 	return "\n".join(history) + "\n"
 
-func welcome() -> String:
+func welcome(input: String = "") -> String:
 	return """Hello, employee [b]%s[/b]. Welcome to your first shift at [wave]Murph's[/wave].
 Your job is vital to the survival of the company. [i]Nothing can go wrong[/i]. If any
 of your stats drop to 0, well, let's just not let that happen.
 
 To get started, type [b]help[/b] to learn your commands.
-Read through [u]README.txt[/u] with the cat command to learn more.
+Read through [i]README.txt[/i] with the cat command to learn more.
+
+Good luck and thank you for being a part of the [wave]Murph[/wave] family :)
 """ % [user]
 
-func whoami() -> String:
+func whoami(input: String = "") -> String:
 	return "%s\n" % user

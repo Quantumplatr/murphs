@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dth7ij0slapvm"]
+
+[ext_resource type="Texture2D" uid="uid://ciw3er0vmug6s" path="res://assets/ui/cursor/cursor_tilemap.png" id="1_gkq2e"]
+[ext_resource type="Script" path="res://scenes/terminal/cursor/cursor.gd" id="2_kaeh7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j03hj"]
+atlas = ExtResource("1_gkq2e")
+region = Rect2(96, 16, 16, 16)
+
+[node name="Cursor" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_j03hj")
+centered = false
+script = ExtResource("2_kaeh7")

@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0mvvxq3dr5bc"]
+[gd_scene load_steps=13 format=3 uid="uid://d0mvvxq3dr5bc"]
 
 [ext_resource type="PackedScene" uid="uid://buk5cqlpcfcri" path="res://scenes/terminal/windows/graphs/graphs.tscn" id="1_dq6hx"]
 [ext_resource type="Shader" path="res://effects/shaders/crt.gdshader" id="1_n50xl"]
 [ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_qftun"]
+[ext_resource type="Script" path="res://scenes/terminal/terminal.gd" id="1_qj1a8"]
+[ext_resource type="PackedScene" uid="uid://cnqnv5513nhmo" path="res://scenes/terminal/windows/info/date_lbl.tscn" id="3_hbr8k"]
 [ext_resource type="PackedScene" uid="uid://bmy3kpxcpunip" path="res://scenes/terminal/windows/console/console.tscn" id="3_yxkve"]
+[ext_resource type="AudioStream" uid="uid://dkkoxxsxds238" path="res://assets/audio/sfx/non_loop/buttons/InOut Button A.wav" id="5_il4ub"]
+[ext_resource type="PackedScene" uid="uid://dg55p6cf1hale" path="res://scenes/terminal/modals/welcome_modal.tscn" id="5_srkax"]
+[ext_resource type="AudioStream" uid="uid://ylrr5yfjpkle" path="res://assets/audio/sfx/non_loop/buttons/InOut Button B.wav" id="6_efs17"]
+[ext_resource type="PackedScene" uid="uid://dth7ij0slapvm" path="res://scenes/terminal/cursor/cursor.tscn" id="6_k0bhq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c74id"]
 shader = ExtResource("1_n50xl")
@@ -21,13 +27,21 @@ shader_parameter/distort_intensity = 0.001
 shader_parameter/noise_opacity = 0.1
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.00400005
+shader_parameter/aberration = 0.00500005
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = true
 shader_parameter/warp_amount = 0.5
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1p0pg"]
+playback_mode = 1
+random_pitch = 1.2
+random_volume_offset_db = 2.0
+streams_count = 2
+stream_0/stream = ExtResource("5_il4ub")
+stream_1/stream = ExtResource("6_efs17")
 
 [node name="Terminal" type="Control"]
 layout_mode = 3
@@ -36,6 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qj1a8")
 
 [node name="Bg" type="ColorRect" parent="."]
 layout_mode = 1
@@ -59,42 +74,66 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="Columns" type="HBoxContainer" parent="Main"]
+[node name="StatusAndMain" type="VBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="InfoWin" parent="Main/StatusAndMain" instance=ExtResource("1_qftun")]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+title = "Info"
+
+[node name="InfoCols" type="HBoxContainer" parent="Main/StatusAndMain/InfoWin"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="UserLbl" type="Label" parent="Main/StatusAndMain/InfoWin/InfoCols"]
+layout_mode = 2
+text = "User 0314"
+
+[node name="AppLbl" type="Label" parent="Main/StatusAndMain/InfoWin/InfoCols"]
+layout_mode = 2
+text = "App NONE"
+
+[node name="DateLbl" parent="Main/StatusAndMain/InfoWin/InfoCols" instance=ExtResource("3_hbr8k")]
+layout_mode = 2
+
+[node name="Columns" type="HBoxContainer" parent="Main/StatusAndMain"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Left" type="VBoxContainer" parent="Main/StatusAndMain/Columns"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Left" type="VBoxContainer" parent="Main/Columns"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="TasksWin" parent="Main/Columns/Left" instance=ExtResource("1_qftun")]
+[node name="TasksWin" parent="Main/StatusAndMain/Columns/Left" instance=ExtResource("1_qftun")]
 custom_minimum_size = Vector2(109, 60)
 layout_mode = 2
 size_flags_vertical = 3
 title = "Tasks"
 bg_color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Tasks" type="ScrollContainer" parent="Main/Columns/Left/TasksWin"]
+[node name="Tasks" type="ScrollContainer" parent="Main/StatusAndMain/Columns/Left/TasksWin"]
 layout_mode = 2
 
-[node name="List" type="VBoxContainer" parent="Main/Columns/Left/TasksWin/Tasks"]
+[node name="List" type="VBoxContainer" parent="Main/StatusAndMain/Columns/Left/TasksWin/Tasks"]
 layout_mode = 2
 
-[node name="GraphsWin" parent="Main/Columns/Left" instance=ExtResource("1_qftun")]
+[node name="GraphsWin" parent="Main/StatusAndMain/Columns/Left" instance=ExtResource("1_qftun")]
 custom_minimum_size = Vector2(109, 60)
 layout_mode = 2
 title = "Stats"
 bg_color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Graphs" parent="Main/Columns/Left/GraphsWin" instance=ExtResource("1_dq6hx")]
+[node name="Graphs" parent="Main/StatusAndMain/Columns/Left/GraphsWin" instance=ExtResource("1_dq6hx")]
 layout_mode = 2
 
-[node name="Right" type="VBoxContainer" parent="Main/Columns"]
+[node name="Right" type="VBoxContainer" parent="Main/StatusAndMain/Columns"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="MainWin" parent="Main/Columns/Right" instance=ExtResource("1_qftun")]
+[node name="MainWin" parent="Main/StatusAndMain/Columns/Right" instance=ExtResource("1_qftun")]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 3
@@ -102,14 +141,14 @@ size_flags_stretch_ratio = 3.0
 title = "Main"
 bg_color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="Main/Columns/Right/MainWin"]
+[node name="CenterContainer" type="CenterContainer" parent="Main/StatusAndMain/Columns/Right/MainWin"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Main/Columns/Right/MainWin/CenterContainer"]
+[node name="Label" type="Label" parent="Main/StatusAndMain/Columns/Right/MainWin/CenterContainer"]
 layout_mode = 2
 text = "No application active"
 
-[node name="ConsoleWin" parent="Main/Columns/Right" instance=ExtResource("1_qftun")]
+[node name="ConsoleWin" parent="Main/StatusAndMain/Columns/Right" instance=ExtResource("1_qftun")]
 custom_minimum_size = Vector2(129, 60)
 layout_mode = 2
 size_flags_vertical = 3
@@ -117,41 +156,22 @@ size_flags_stretch_ratio = 2.0
 title = "Console"
 bg_color = Color(0.1, 0.1, 0.1, 1)
 
-[node name="Console" parent="Main/Columns/Right/ConsoleWin" instance=ExtResource("3_yxkve")]
+[node name="Console" parent="Main/StatusAndMain/Columns/Right/ConsoleWin" instance=ExtResource("3_yxkve")]
 layout_mode = 2
 
-[node name="Modals" type="CenterContainer" parent="."]
+[node name="Modals" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Window" parent="Modals" instance=ExtResource("1_qftun")]
-custom_minimum_size = Vector2(129, 60)
-layout_mode = 2
-title = "Welcome"
-color = Color(0.407332, 0.742735, 0.657785, 1)
-show_background = true
+[node name="WelcomeModal" parent="Modals" instance=ExtResource("5_srkax")]
+layout_mode = 1
 
-[node name="Label" type="RichTextLabel" parent="Modals/Window"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[center][b]                     _    _ 
- /\\/\\  _   _ _ __ _ __ | |__( )__ 
- /    \\| | | | '__| '_ \\| '_ \\/ __|
-/ /\\/\\ \\ |_| | |  | |_) | | | \\__ \\
-\\/    \\/\\__,_|_|  | .__/|_| |_|___/
-    |_|
-[/b]
-You have successfully logged into Murph's computer
-system as employee [b]0314[/b].
-
-Press [wave]<space>[/wave] to get to work
-[/center]"
-fit_content = true
-autowrap_mode = 0
+[node name="Cursor" parent="." instance=ExtResource("6_k0bhq")]
 
 [node name="CRT" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_c74id")
@@ -163,3 +183,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.0377702, 0.0759321, 0.0861049, 1)
+
+[node name="KeyPressAudio" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_1p0pg")
+volume_db = -15.0
+max_polyphony = 4

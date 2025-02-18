@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/terminal/windows/window.gd" id="1_k2ght"]
 
 [node name="Window" type="MarginContainer"]
+custom_minimum_size = Vector2(119, 60)
 offset_right = 69.0
 offset_bottom = 34.0
 theme_override_constants/margin_left = 20
