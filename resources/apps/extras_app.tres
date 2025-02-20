@@ -9,3 +9,5 @@ display_name = "Extras"
 command = "extras"
 description = "Display game extras (e.g. credits)"
 scene = ExtResource("1_y3nqs")
+task_gen_string = "App Task in %s"
+project = 0
