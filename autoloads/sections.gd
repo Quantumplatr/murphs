@@ -1,29 +1,37 @@
 extends Node
 
-var hallucination: float = 90:
+var h0: float = 90
+var s0: float = 95
+var l0: float = 60
+var a0: float = 80
+
+var hallucination: float = h0:
 	set(value):
 		hallucination = clamp(value, 0, 100)
-var sleepiness: float = 95:
+var sleepiness: float = s0:
 	set(value):
 		sleepiness = clamp(value, 0, 100)
-var luck: float = 60:
+var luck: float = l0:
 	set(value):
 		luck = clamp(value, 0, 100)
-var anger: float = 80:
+var anger: float = a0:
 	set(value):
 		anger = clamp(value, 0, 100)
 
+var _running := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	reset()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	hallucination += delta * dh()
-	sleepiness += delta * ds()
-	luck += delta * dl()
-	anger += delta * da()
+	if _running:
+		hallucination += delta * dh()
+		sleepiness += delta * ds()
+		luck += delta * dl()
+		anger += delta * da()
 
 func dh() -> float:
 	return -0.4
@@ -36,4 +44,15 @@ func dl() -> float:
 
 func da() -> float:
 	return -0.3
-	
+
+func reset() -> void:
+	_running = false
+	hallucination = h0
+	sleepiness = s0
+	luck = l0
+	anger = a0
+
+func start() -> void:
+	_running = true
+func stop() -> void:
+	_running = false

@@ -249,6 +249,7 @@ func read(input: String = "") -> String:
 
 func restart(input: String = "") -> String:
 	TaskManager.clear_tasks()
+	Sections.reset()
 	get_tree().reload_current_scene()
 	return ""
 
