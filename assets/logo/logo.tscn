@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://vf78lf08rnh1"]
+
+[ext_resource type="Shader" path="res://effects/shaders/crt.gdshader" id="1_8rl8o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3gna"]
+shader = ExtResource("1_8rl8o")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.2
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.001
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 0.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.0580001
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 3.5
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="Logo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0377702, 0.0759321, 0.0861049, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 100
+theme_override_font_sizes/italics_font_size = 100
+theme_override_font_sizes/mono_font_size = 100
+theme_override_font_sizes/normal_font_size = 820
+theme_override_font_sizes/bold_font_size = 600
+bbcode_enabled = true
+text = "M"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CRTish" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_m3gna")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0377702, 0.0759321, 0.0861049, 1)
