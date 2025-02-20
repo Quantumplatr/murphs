@@ -23,7 +23,9 @@ func _process_custom_fx(char_fx: CharFXTransform):
 	var speed = char_fx.env.get("speed", 10)
 	
 	# Check decryption
-	var decrypted = Encryption.unlocked[level as Encryption.Levels]
+	var decrypted = false
+	if "unlocked" in Encryption and level >= 0: # Workaround to work w/ autoload in editor
+		decrypted = Encryption.unlocked[level as Encryption.Levels]
 	char_fx.color = Constants.ENCRYPTED_COLOR if decrypted else Constants.DECRYPTED_COLOR
 	if decrypted:
 		return true

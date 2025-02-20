@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://dedu0rqjvcm65"]
+
+[ext_resource type="Script" path="res://scenes/terminal/apps/app.gd" id="1_uf7x3"]
+
+[node name="ExtrasApp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uf7x3")
+
+[node name="Tabs" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Credits" type="TabBar" parent="Tabs"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" type="RichTextLabel" parent="Tabs/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]
+[wave][b]                     _    _ 
+ /\\/\\  _   _ _ __ _ __ | |__( )__ 
+ /    \\| | | | '__| '_ \\| '_ \\/ __|
+/ /\\/\\ \\ |_| | |  | |_) | | | \\__ \\
+\\/    \\/\\__,_|_|  | .__/|_| |_|___/
+    |_|
+[/b][/wave]
+A Game by [url=https://eef.app]Ethan Christensen[/url]
+
+[b]--- Development --- [/b]
+Ethan Christensen
+
+[b]--- Art ---[/b]
+[url=https://www.colophon-foundry.org/custom-projects/space-mono]Space Mono Font by Colophon Foundry[/url]
+[url=http://www.figlet.org/fontdb_example.cgi?font=ogre.flf]Ogre Figlet Font by Glenn Chappell & Ian Chai[/url]
+[url=https://www.kenney.nl/assets/cursor-pixel-pack]Cursor by Kenney[/url]
+Ethan Christensen
+
+[b]--- VFX ---[/b]
+[url=https://godotshaders.com/shader/vhs-and-crt-monitor-effect/]CRT Shader by pend00[/url]
+
+[b]--- Music & SFX --- [/b]
+[url=https://ovanisound.com/]Ovani Sound[/url]
+
+[b]--- Play Testers ---[/b]
+Carsen Monaco
+Jake Ryan
+Tristan Morrell
+Cody Colsch
+
+[b]--- Special Thanks ---[/b]
+Milo B.
+
+[wave][b]Thanks for playing!!![/b][/wave]
+
+
+[/center]"

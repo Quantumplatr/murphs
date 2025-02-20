@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://crfub5jucu64m"]
+
+[ext_resource type="Script" path="res://scenes/terminal/windows/info/version_lbl.gd" id="1_d6j21"]
+
+[node name="VersionLbl" type="Label"]
+text = "MurphOS vVERSION"
+script = ExtResource("1_d6j21")

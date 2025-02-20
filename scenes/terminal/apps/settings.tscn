@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://26lcxxgs5c3g"]
+
+[ext_resource type="Script" path="res://scenes/terminal/apps/app.gd" id="1_p8y7h"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8y7h")
+
+[node name="Tabs" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="General" type="TabBar" parent="Tabs"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" type="Label" parent="Tabs/General"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 24.0
+text = "Test"
+
+[node name="Video" type="TabBar" parent="Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Audio" type="TabBar" parent="Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

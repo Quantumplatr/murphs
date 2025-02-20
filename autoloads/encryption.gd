@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 enum Levels { BASIC, ADMIN, VULGAR }

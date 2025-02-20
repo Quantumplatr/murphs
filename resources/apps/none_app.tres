@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AppData" load_steps=3 format=3 uid="uid://emuv4sbgsktw"]
+
+[ext_resource type="PackedScene" uid="uid://b8fsbrl4gc2rh" path="res://scenes/terminal/apps/none_app.tscn" id="1_ikle1"]
+[ext_resource type="Script" path="res://resources/custom/app_data/app_data.gd" id="2_ogg8s"]
+
+[resource]
+script = ExtResource("2_ogg8s")
+display_name = "NONE"
+command = "exit"
+description = "Null app"
+scene = ExtResource("1_ikle1")

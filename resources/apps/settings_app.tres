@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AppData" load_steps=3 format=3 uid="uid://c4rdi1oscftp5"]
+
+[ext_resource type="PackedScene" uid="uid://26lcxxgs5c3g" path="res://scenes/terminal/apps/settings.tscn" id="1_ik14b"]
+[ext_resource type="Script" path="res://resources/custom/app_data/app_data.gd" id="2_bjxhb"]
+
+[resource]
+script = ExtResource("2_bjxhb")
+display_name = "Settings"
+command = "settings"
+description = "Edit game settings"
+scene = ExtResource("1_ik14b")

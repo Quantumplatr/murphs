@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn8adihpnqgwr"]
+
+[ext_resource type="Script" path="res://scenes/terminal/windows/info/app_lbl.gd" id="1_bb5jo"]
+
+[node name="AppLbl" type="Label"]
+text = "App NONE"
+script = ExtResource("1_bb5jo")

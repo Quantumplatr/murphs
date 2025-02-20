@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RefinerAppDatA" load_steps=3 format=3 uid="uid://xg0chs4s0ibk"]
+
+[ext_resource type="PackedScene" uid="uid://d3qpgxxoynm2a" path="res://scenes/terminal/apps/refiner/refiner_app.tscn" id="1_h2ae3"]
+[ext_resource type="Script" path="res://resources/custom/app_data/refiner_app_data.gd" id="2_gnkj3"]
+
+[resource]
+script = ExtResource("2_gnkj3")
+display_name = "Refiner"
+command = "refine"
+description = "Refine the given project file"
+scene = ExtResource("1_h2ae3")
+task_gen_string = "Refine %ds in %s"
+project = 0

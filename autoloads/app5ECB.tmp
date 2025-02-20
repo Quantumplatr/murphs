@@ -1,0 +1,14 @@
+[gd_scene load_steps=8 format=3 uid="uid://crbg532heyd0l"]
+
+[ext_resource type="Script" path="res://autoloads/app_manager.gd" id="1_v0ox7"]
+[ext_resource type="Resource" uid="uid://emuv4sbgsktw" path="res://resources/apps/none_app.tres" id="2_csh8e"]
+[ext_resource type="Script" path="res://resources/custom/app_data.gd" id="2_ywvsy"]
+[ext_resource type="Resource" uid="uid://xg0chs4s0ibk" path="res://resources/apps/refiner_app.tres" id="4_cgprl"]
+[ext_resource type="Resource" uid="uid://c4rdi1oscftp5" path="res://resources/apps/settings_app.tres" id="4_qn7l1"]
+[ext_resource type="Resource" uid="uid://cak2453jtdsfd" path="res://resources/apps/extras_app.tres" id="5_6q1aq"]
+[ext_resource type="Resource" uid="uid://cisxuosfvb3vq" path="res://resources/apps/murphsweeper_app.tres" id="5_ibu2o"]
+
+[node name="AppManager" type="Node"]
+script = ExtResource("1_v0ox7")
+none_app = ExtResource("2_csh8e")
+apps = Array[ExtResource("2_ywvsy")]([ExtResource("4_cgprl"), ExtResource("5_ibu2o"), ExtResource("4_qn7l1"), ExtResource("5_6q1aq")])

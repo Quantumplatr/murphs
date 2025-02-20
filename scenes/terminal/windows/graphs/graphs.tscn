@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://buk5cqlpcfcri"]
+[gd_scene load_steps=3 format=3 uid="uid://buk5cqlpcfcri"]
 
+[ext_resource type="Script" path="res://scenes/terminal/windows/graphs/graphs.gd" id="1_avdnb"]
 [ext_resource type="PackedScene" uid="uid://dusxqqeviocxc" path="res://scenes/terminal/windows/graphs/bar.tscn" id="1_e4htp"]
 
 [node name="Graphs" type="HBoxContainer"]
+offset_right = 412.0
+offset_bottom = 44.0
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_avdnb")
 
 [node name="Hallucination" parent="." instance=ExtResource("1_e4htp")]
 layout_mode = 2

@@ -1,5 +1,7 @@
 extends Node
 
+@export var DATE: String = "3220-02-23"
+
 @export var MAIN_BG_COLOR: Color = Color(0.038, 0.076, 0.086)
 
 @export var ERROR_COLOR: Color = Color.LIGHT_CORAL

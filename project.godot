@@ -11,23 +11,36 @@ config_version=5
 [application]
 
 config/name="Murph's"
+config/version="v0.0.1-alpha"
 run/main_scene="res://scenes/terminal/terminal.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/logo/logo.png"
 
 [autoload]
 
 Constants="*res://autoloads/constants.tscn"
 Encryption="*res://autoloads/encryption.gd"
+Sections="*res://autoloads/sections.gd"
+AppManager="*res://autoloads/app_manager.tscn"
+TaskManager="*res://autoloads/task_manager.tscn"
 
 [display]
 
 window/size/viewport_width=1080
 window/size/viewport_height=810
+window/stretch/mode="viewport"
 
 [editor]
 
 export/convert_text_resources_to_binary=false
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "pink",
+"res://drive/": "purple",
+"res://scenes/": "green"
+}
 
 [gui]
 
