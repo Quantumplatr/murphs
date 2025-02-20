@@ -1,0 +1,23 @@
+[b]--- BASICS.txt ---[/b]
+This file will walk you through the basics of navigating this console. If you are familiar with a terminal/shell, you'll likely get very little from this file.
+
+[b]--- Usage --- [/b]
+Every command/app takes the form:
+	[color=purple][lb]COMMAND/APP[rb] [lb]INPUT[rb][/color]
+To be reading this file, you would've typed something like:
+	[color=purple]read BASICS.txt[/color]
+This is the command [color=purple]read[/color] followed by the input [color=purple]BASICS.txt[/color]. Input is not always required but when it is, it will often be a file name. It is often easiest to learn by trying. Try typing in [color=purple]ls[/color], [color=purple]help[/color], or [color=purple]read[/color].
+
+[b]--- [color=purple]cd[/color] & [color=purple]ls[/color] ---[/b]
+The [color=purple]cd[/color] and [color=purple]ls[/color] commands are your best friend. These will allow you to navigate the file system. You can see the directory you're currently in with [color=purple]pwd[/color] or by looking at the prompt to the left of the console input.
+
+The [color=purple]ls[/color] command lists the current files and folders in the current directory. The [color=purple]cd[/color] changes directory/folder to the one specified. You start in the home directory: [color=steel_blue]~[/color].
+
+Here are some helpful examples:
+[table=2]
+[cell]-[/cell][cell]If you are in your home folder ([color=steel_blue]~[/color]), you can go to the projects folder with [color=purple]cd projects[/color]. (I.e. [color=steel_blue]~[/color] -> [color=steel_blue]~/projects[/color])[/cell]
+[cell]-[/cell][cell]You can navigate upwards with [color=purple]cd ..[/color] (E.g. [color=steel_blue]~/projects[/color] -> [color=steel_blue]~[/color])[/cell]
+[cell]-[/cell][cell]You can navigate back to the home folder ([color=steel_blue]~[/color]) by giving no other input to [color=purple]cd[/color] (E.g. [color=steel_blue]~/archive/users[/color] -> [color=steel_blue]~[/color])[/cell]
+
+[b]--- [color=purple]help[/color] --- [/b]
+The [color=purple]help[/color] command is always there to help you remember what commands/apps are available to you. If you input a command in incorrectly, it will help you with usage and often an example.
