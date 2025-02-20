@@ -21,13 +21,13 @@ show_background = true
 [node name="Label" type="RichTextLabel" parent="Window"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[center][b]                     _    _ 
+text = "[center][b][wave]                     _    _ 
  /\\/\\  _   _ _ __ _ __ | |__( )__ 
  /    \\| | | | '__| '_ \\| '_ \\/ __|
 / /\\/\\ \\ |_| | |  | |_) | | | \\__ \\
 \\/    \\/\\__,_|_|  | .__/|_| |_|___/
     |_|
-[/b]
+[/wave][/b]
 You have successfully logged into Murph's computer
 system as employee [b]0314[/b].
 
