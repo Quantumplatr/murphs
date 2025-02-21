@@ -1,6 +1,7 @@
 extends Node
 
 signal started(app: AppData)
+signal failed(app: AppData, new_HSLA: Vector4, dHSLA: Vector4)
 
 @export var none_app: AppData
 @export var apps: Array[AppData] = []
@@ -21,3 +22,8 @@ func try_load(command: String) -> bool:
 		return true
 	else:
 		return false
+
+func fail() -> void:
+	var dHSLA := -Sections.HSLA / 2.0
+	var new_HSLA := Sections.delta(dHSLA)
+	failed.emit(current, dHSLA, new_HSLA)
