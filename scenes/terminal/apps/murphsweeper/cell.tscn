@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://m2cppa4bl8rf"]
+
+[ext_resource type="Script" path="res://scenes/terminal/apps/murphsweeper/cell.gd" id="1_2llnr"]
+
+[node name="Cell" type="Button"]
+custom_minimum_size = Vector2(32, 32)
+focus_mode = 0
+script = ExtResource("1_2llnr")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

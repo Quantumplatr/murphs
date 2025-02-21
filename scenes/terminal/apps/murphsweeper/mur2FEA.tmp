@@ -23,7 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Windows"]
-custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 
 [node name="Info" parent="Windows/VBoxContainer" instance=ExtResource("3_ef7x2")]
@@ -31,51 +30,24 @@ custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 title = "Info"
 
-[node name="Infos" type="VBoxContainer" parent="Windows/VBoxContainer/Info"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Windows/VBoxContainer/Info"]
 layout_mode = 2
 
-[node name="ClearedInfo" type="HBoxContainer" parent="Windows/VBoxContainer/Info/Infos"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Windows/VBoxContainer/Info/Infos/ClearedInfo"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Cleared:"
-
-[node name="ClearedLbl" type="Label" parent="Windows/VBoxContainer/Info/Infos/ClearedInfo"]
+[node name="ClearedLbl" type="Label" parent="Windows/VBoxContainer/Info/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "0/0"
-horizontal_alignment = 1
+text = "Cleared: 0/0 ✅"
 
-[node name="FlaggedInfo" type="HBoxContainer" parent="Windows/VBoxContainer/Info/Infos"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Windows/VBoxContainer/Info/Infos/FlaggedInfo"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Flagged:"
-
-[node name="FlaggedLbl" type="Label" parent="Windows/VBoxContainer/Info/Infos/FlaggedInfo"]
+[node name="FlaggedLbl" type="Label" parent="Windows/VBoxContainer/Info/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "0/0"
-horizontal_alignment = 1
+text = "Flagged: 0/0 🚩"
 
 [node name="Help" parent="Windows/VBoxContainer" instance=ExtResource("3_ef7x2")]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 3
 title = "Help"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Windows/VBoxContainer/Help"]
-layout_mode = 2
-bbcode_enabled = true
-text = "LMB to clear
-RMB to flag
-
-Numbers indicate number of unsafe neighbor cells."
-fit_content = true
 
 [node name="Main" parent="Windows" instance=ExtResource("3_ef7x2")]
 custom_minimum_size = Vector2(100, 60)
