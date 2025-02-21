@@ -12,6 +12,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dmjv1")
 NUMBER_SCENE = ExtResource("2_gn2wm")
+cols = 9
+rows = 9
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
