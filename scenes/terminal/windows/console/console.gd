@@ -109,6 +109,12 @@ func prompt() -> String:
 	return "[color=medium_sea_green]%s@%s[/color]: [color=steel_blue]%s[/color]$ " % [user, computer, dir.get_current_dir().replace(HOME, "~")]
 
 func run(input: String) -> String:
+	input = input.strip_edges()
+	
+	# TODO: improve? maybe when commands are resources?
+	if dir.file_exists(sanitize_path(input)):
+		input = "read %s" % input
+	
 	var tokens := input.split(" ", false, 1)
 	
 	# If no command, skip
@@ -125,7 +131,7 @@ func run(input: String) -> String:
 		return ""
 	
 	if command_str not in commands and command_str not in hidden_commands:
-		return "command not found: %s\nTry [b]help[/b] to see available commands/apps\n" % command_str
+		return "command not found: %s\nTry [color=purple]help[/color] to see available commands/apps\n" % command_str
 	
 	history.push_back(input)
 	history_index = -1 # Reset history navigation
