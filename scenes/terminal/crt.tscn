@@ -28,7 +28,7 @@ shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="Curve" id="Curve_25kw0"]
-_data = [Vector2(0, 0), 0.0, 6.12795, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 4.71856, 0, 0, Vector2(0.705882, 1), 0.0466716, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_qjawy"]
@@ -48,4 +48,5 @@ script = ExtResource("2_iub4k")
 h_curve = SubResource("Curve_25kw0")
 s_curve = SubResource("Curve_qjawy")
 a_curve = SubResource("Curve_qjawy")
+h0 = 0.04
 metadata/_edit_lock_ = true

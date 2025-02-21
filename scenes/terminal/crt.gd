@@ -16,15 +16,19 @@ extends ColorRect
 @export var a100: float = 0.05
 @export var a0: float = 1
 
+var HSLA: Vector4
+@export var SPEED: float = 0.5
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	HSLA = Sections.HSLA
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Update shader based on HSLA
+	HSLA = HSLA.lerp(Sections.HSLA, delta * SPEED)
 	update_hallucination()
 	update_sleepiness()
 	update_luck()
@@ -32,12 +36,12 @@ func _process(delta: float) -> void:
 
 func update_hallucination():
 	# Aberration
-	var aberration = sample(h_curve, Sections.hallucination, h0, h100)
+	var aberration = sample(h_curve, HSLA.x, h0, h100)
 	material.set("shader_parameter/aberration", aberration)
 	
 func update_sleepiness():
 	# Vignette Intensity
-	var vi = sample(s_curve, Sections.sleepiness, s0, s100)
+	var vi = sample(s_curve, HSLA.y, s0, s100)
 	material.set("shader_parameter/vignette_intensity", vi)
 	
 func update_luck():
@@ -45,7 +49,7 @@ func update_luck():
 	
 func update_anger():
 	# Grille Opacity
-	var go = sample(a_curve, Sections.anger, a0, a100)
+	var go = sample(a_curve, HSLA.w, a0, a100)
 	material.set("shader_parameter/grille_opacity", go)
 
 func sample(curve: Curve, value: float, v0: float, v100: float) -> float:
