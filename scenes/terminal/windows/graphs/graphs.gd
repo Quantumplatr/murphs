@@ -7,12 +7,24 @@ extends HBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	hallucination.value = Sections.hallucination
+	sleepiness.value = Sections.sleepiness
+	luck.value = Sections.luck
+	anger.value = Sections.anger
+	
+	hallucination.trailing_value = Sections.hallucination
+	sleepiness.trailing_value = Sections.sleepiness
+	luck.trailing_value = Sections.luck
+	anger.trailing_value = Sections.anger
 
+var time: float = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# TODO: switch to event
+	time += delta
+	if time > 1:
+		time = 0
+		# TODO: switch to event
 	hallucination.value = Sections.hallucination
 	sleepiness.value = Sections.sleepiness
 	luck.value = Sections.luck

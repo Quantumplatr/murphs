@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dusxqqeviocxc"]
+[gd_scene load_steps=3 format=3 uid="uid://dusxqqeviocxc"]
 
 [ext_resource type="Script" path="res://scenes/terminal/windows/graphs/bar.gd" id="1_204lc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee7fa"]
+bg_color = Color(0.941176, 0.501961, 0.501961, 1)
 
 [node name="Bar" type="VBoxContainer"]
 offset_right = 10.0
@@ -10,11 +13,25 @@ alignment = 1
 script = ExtResource("1_204lc")
 title = "H"
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="BackBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 100)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_ee7fa")
+fill_mode = 3
+show_percentage = false
+
+[node name="FrontBar" type="ProgressBar" parent="BackBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 value = 50.0
 fill_mode = 3
 show_percentage = false
