@@ -2,8 +2,9 @@
 
 <!-- mtoc-start -->
 
-* [Unreleased](#unreleased)
+* [v0.0.2-alpha - 2025-02-21](#v002-alpha---2025-02-21)
   * [Features](#features)
+  * [Changes](#changes)
   * [Fixes](#fixes)
 * [v0.0.1-alpha - 2025-02-19](#v001-alpha---2025-02-19)
   * [Features](#features-1)
@@ -11,15 +12,25 @@
 
 <!-- mtoc-end -->
 
-## Unreleased
+## v0.0.2-alpha - 2025-02-21
 
 ### Features
 
 - Don't start dHSLA until welcome modal closed
+- Typing just a file name will use the read command on it
+- Murphsweeper app mostly implemented
+- Failed app modal implemented
+- Stat bars animate changes
+
+### Changes
+
+- Improved H effect curve
+- CRT effect changes now animate to value
 
 ### Fixes
 
 - Fix restart command not resetting HSLA values
+- Cursor is now re-affected by CRT shader. Last "fix" for this was wrong.
 
 ## v0.0.1-alpha - 2025-02-19
 
