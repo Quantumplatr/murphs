@@ -1,6 +1,5 @@
 extends Control
 
-@onready var key_press_audio: AudioStreamPlayer = $KeyPressAudio
 @onready var main_win: MarginContainer = %MainWin
 @onready var modals: Control = $Modals
 
@@ -10,7 +9,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Modals.show()
+	modals.show()
 	AppManager.started.connect(_start_app)
 	AppManager.failed.connect(_fail_app)
 	TaskManager.create_tasks(initial_tasks)
@@ -21,9 +20,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_pressed():
-		key_press_audio.play()
 
 func _start_app(app: AppData):
 	for child in main_win.get_children():

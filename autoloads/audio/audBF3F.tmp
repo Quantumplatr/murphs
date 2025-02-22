@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://egg5y2w34hhm"]
+
+[ext_resource type="Script" path="res://autoloads/audio/audio_manager.gd" id="1_c1tec"]
+[ext_resource type="AudioStream" uid="uid://dupkufkpw5m4v" path="res://resources/audio/keypress.tres" id="2_8t43g"]
+[ext_resource type="AudioStream" uid="uid://cas7og2vi6rm5" path="res://assets/audio/ambient/Computer Hum Loop.wav" id="3_03whn"]
+[ext_resource type="AudioStream" uid="uid://62vth680pft3" path="res://assets/audio/music/qwerty/Chiptune Vol3 Qwerty Main.wav" id="3_lpaxe"]
+[ext_resource type="AudioStream" uid="uid://d1uki1k5w3lkw" path="res://assets/audio/ambient/Quantum Fluctuations Loop.wav" id="4_2l3oj"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_c1tec")
+KEYPRESS_SOUND = ExtResource("2_8t43g")
+
+[node name="Ambient" type="Node" parent="."]
+
+[node name="ComputerHumPlayer" type="AudioStreamPlayer" parent="Ambient"]
+stream = ExtResource("3_03whn")
+autoplay = true
+
+[node name="DangerLoopPlayer" type="AudioStreamPlayer" parent="Ambient"]
+stream = ExtResource("4_2l3oj")
+volume_db = -14.933
+autoplay = true
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="KeypressPlayer" type="AudioStreamPlayer" parent="SFX"]
+unique_name_in_owner = true
+stream = ExtResource("2_8t43g")
+max_polyphony = 4
+
+[node name="Music" type="Node" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="Music"]
+unique_name_in_owner = true
+stream = ExtResource("3_lpaxe")
+autoplay = true

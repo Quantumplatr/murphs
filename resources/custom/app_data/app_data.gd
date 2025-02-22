@@ -27,6 +27,8 @@ enum TaskGenTypes { STRING, PROJECT, DIGIT }
 
 @export var project: Project
 
+@export var music: AudioStream
+
 func task_gen() -> TaskData:
 	var t: TaskData = TaskData.new()
 	t.app = self

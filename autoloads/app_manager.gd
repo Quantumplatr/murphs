@@ -10,6 +10,9 @@ signal failed(app: AppData, new_HSLA: Vector4, dHSLA: Vector4)
 
 func load(app: AppData) -> void:
 	current = app
+	AudioManager.stop_music()
+	if app.music:
+		AudioManager.play_music(app.music)
 	started.emit(app)
 
 func try_load(command: String) -> bool:

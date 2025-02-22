@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdukh75snh0xm"]
+
+[ext_resource type="Script" path="res://autoloads/settings/settings_manager.gd" id="1_mkqnv"]
+[ext_resource type="Resource" uid="uid://b5nhwxpf065qv" path="res://resources/custom/settings/default_settings.tres" id="2_6k0wi"]
+
+[node name="SettingsManager" type="Node"]
+script = ExtResource("1_mkqnv")
+default_settings = ExtResource("2_6k0wi")

@@ -5,7 +5,8 @@ extends App
 @export var cols: int = 21:
 	set(v):
 		cols = v
-		list.columns = v
+		if list:
+			list.columns = v
 @export var rows: int = 6
 @onready var list: GridContainer = $CenterContainer/List
 

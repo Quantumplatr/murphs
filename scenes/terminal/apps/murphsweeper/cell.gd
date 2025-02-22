@@ -61,6 +61,7 @@ func toggle_flag() -> void:
 	if not is_flagged:
 		is_flagged = true
 		text = "FL"
+		add_theme_color_override("font_color", Constants.MAIN_BG_COLOR)
 	else:
 		is_flagged = false
 		text = ""

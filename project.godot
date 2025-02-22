@@ -11,18 +11,20 @@ config_version=5
 [application]
 
 config/name="Murph's"
-config/version="v0.0.1-alpha"
+config/version="v0.0.3-alpha"
 run/main_scene="res://scenes/terminal/terminal.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/logo/logo.png"
 
 [autoload]
 
+SettingsManager="*res://autoloads/settings/settings_manager.tscn"
 Constants="*res://autoloads/constants.tscn"
 Encryption="*res://autoloads/encryption.gd"
 Sections="*res://autoloads/sections.gd"
 AppManager="*res://autoloads/app_manager.tscn"
 TaskManager="*res://autoloads/task_manager.tscn"
+AudioManager="*res://autoloads/audio/audio_manager.tscn"
 
 [display]
 

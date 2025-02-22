@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0mvvxq3dr5bc"]
+[gd_scene load_steps=16 format=3 uid="uid://d0mvvxq3dr5bc"]
 
 [ext_resource type="PackedScene" uid="uid://buk5cqlpcfcri" path="res://scenes/terminal/windows/graphs/graphs.tscn" id="1_dq6hx"]
 [ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_qftun"]
@@ -8,24 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://cnqnv5513nhmo" path="res://scenes/terminal/windows/info/date_lbl.tscn" id="3_hbr8k"]
 [ext_resource type="PackedScene" uid="uid://bmy3kpxcpunip" path="res://scenes/terminal/windows/console/console.tscn" id="3_yxkve"]
 [ext_resource type="PackedScene" uid="uid://bn8adihpnqgwr" path="res://scenes/terminal/windows/info/app_lbl.tscn" id="4_g4ghr"]
-[ext_resource type="AudioStream" uid="uid://dkkoxxsxds238" path="res://assets/audio/sfx/non_loop/buttons/InOut Button A.wav" id="5_il4ub"]
 [ext_resource type="Script" path="res://effects/text/rich_text_encrypted.gd" id="5_jxkgg"]
 [ext_resource type="PackedScene" uid="uid://dg55p6cf1hale" path="res://scenes/terminal/modals/welcome_modal.tscn" id="5_srkax"]
-[ext_resource type="AudioStream" uid="uid://ylrr5yfjpkle" path="res://assets/audio/sfx/non_loop/buttons/InOut Button B.wav" id="6_efs17"]
 [ext_resource type="PackedScene" uid="uid://dth7ij0slapvm" path="res://scenes/terminal/cursor/cursor.tscn" id="6_k0bhq"]
 [ext_resource type="PackedScene" uid="uid://bitrdv3vb8mr2" path="res://scenes/terminal/windows/tasks/tasks.tscn" id="6_t8p2x"]
 [ext_resource type="PackedScene" uid="uid://qslsfrffgbq2" path="res://scenes/terminal/crt.tscn" id="11_sjntn"]
+[ext_resource type="AudioStream" uid="uid://dupkufkpw5m4v" path="res://resources/audio/keypress.tres" id="14_k072e"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_wrud6"]
 script = ExtResource("5_jxkgg")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1p0pg"]
-playback_mode = 1
-random_pitch = 1.2
-random_volume_offset_db = 2.0
-streams_count = 2
-stream_0/stream = ExtResource("5_il4ub")
-stream_1/stream = ExtResource("6_efs17")
 
 [node name="Terminal" type="Control"]
 layout_mode = 3
@@ -102,7 +93,13 @@ bg_color = Color(0.1, 0.1, 0.1, 1)
 focus_color = Color(0.407332, 0.742735, 0.657785, 1)
 
 [node name="Tasks" parent="Main/StatusAndMain/Columns/Left/TasksWin" instance=ExtResource("6_t8p2x")]
+visible = false
 layout_mode = 2
+
+[node name="Label" type="Label" parent="Main/StatusAndMain/Columns/Left/TasksWin"]
+layout_mode = 2
+text = "Coming soon..."
+horizontal_alignment = 1
 
 [node name="Stats" parent="Main/StatusAndMain/Columns/Left" instance=ExtResource("1_qftun")]
 custom_minimum_size = Vector2(109, 60)
@@ -174,6 +171,6 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="KeyPressAudio" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_1p0pg")
+stream = ExtResource("14_k072e")
 volume_db = -15.0
 max_polyphony = 4

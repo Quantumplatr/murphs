@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1uki1k5w3lkw"
+path="res://.godot/imported/Quantum Fluctuations Loop.wav-bb82f78139043181c88130f8a321a56f.sample"
+
+[deps]
+
+source_file="res://assets/audio/ambient/Quantum Fluctuations Loop.wav"
+dest_files=["res://.godot/imported/Quantum Fluctuations Loop.wav-bb82f78139043181c88130f8a321a56f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

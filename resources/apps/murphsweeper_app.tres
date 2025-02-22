@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="AppData" load_steps=3 format=3 uid="uid://cisxuosfvb3vq"]
+[gd_resource type="Resource" script_class="AppData" load_steps=4 format=3 uid="uid://cisxuosfvb3vq"]
 
 [ext_resource type="Script" path="res://resources/custom/app_data/app_data.gd" id="1_6wo4b"]
+[ext_resource type="AudioStream" uid="uid://62vth680pft3" path="res://assets/audio/music/qwerty/Chiptune Vol3 Qwerty Main.wav" id="1_biul6"]
 [ext_resource type="PackedScene" uid="uid://u1g03v5xifrg" path="res://scenes/terminal/apps/murphsweeper/murphsweeper.tscn" id="1_nwqt7"]
 
 [resource]
@@ -11,3 +12,4 @@ description = "Clear away valid cells"
 scene = ExtResource("1_nwqt7")
 task_gen_string = "Sweep %s"
 project = 0
+music = ExtResource("1_biul6")

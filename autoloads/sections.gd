@@ -43,16 +43,16 @@ func _process(delta: float) -> void:
 		anger += delta * da()
 
 func dh() -> float:
-	return -0.4
-
-func ds() -> float:
-	return -0.5
-
-func dl() -> float:
 	return -0.2
 
+func ds() -> float:
+	return -0.25
+
+func dl() -> float:
+	return -0.1
+
 func da() -> float:
-	return -0.3
+	return -0.15
 
 func reset() -> void:
 	_running = false

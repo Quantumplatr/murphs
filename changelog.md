@@ -2,15 +2,26 @@
 
 <!-- mtoc-start -->
 
-* [v0.0.2-alpha - 2025-02-21](#v002-alpha---2025-02-21)
-  * [Features](#features)
-  * [Changes](#changes)
-  * [Fixes](#fixes)
-* [v0.0.1-alpha - 2025-02-19](#v001-alpha---2025-02-19)
-  * [Features](#features-1)
-  * [Fixes](#fixes-1)
+- [v0.0.2-alpha - 2025-02-21](#v002-alpha---2025-02-21)
+  - [Features](#features)
+  - [Changes](#changes)
+  - [Fixes](#fixes)
+- [v0.0.1-alpha - 2025-02-19](#v001-alpha---2025-02-19)
+  - [Features](#features-1)
+  - [Fixes](#fixes-1)
 
 <!-- mtoc-end -->
+
+## v0.0.3-alpha - 2025-02-22
+
+### Features
+
+- Settings app functional
+- Music and ambient audio
+
+### Changes
+
+### Fixes
 
 ## v0.0.2-alpha - 2025-02-21
 
