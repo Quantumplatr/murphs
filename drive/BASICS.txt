@@ -1,4 +1,4 @@
-[b]--- BASICS.txt ---[/b]
+[b]--- BASICS ---[/b]
 This file will walk you through the basics of navigating this console. If you are familiar with a terminal/shell, you'll likely get very little from this file.
 
 [b]--- Usage ---[/b]

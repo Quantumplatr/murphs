@@ -1,4 +1,4 @@
-[b]--- README.txt ---[/b]
+[b]--- README ---[/b]
 Welcome, valued employee. Here at [wave]Murph's[/wave], your work is very important. So important, in fact, that we cannot disclose what you are actually doing. Simply do the tasks assigned to you, and be content in knowing that you are making all the difference.
 
 [b] - Tasks & Applications - [/b]

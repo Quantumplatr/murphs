@@ -1,0 +1,23 @@
+[b]--- Murphsweeper ---[/b]
+Murphsweeper is Murph's implementation of the classic, Minesweeper. If you're familiar with Minesweeper, you'll be right at home with Murphsweeper. Upon starting Murphsweeper, you'll be met with a grid of cells. Some of the cells [shake]CANNOT[/shake] be opened. However, you must open all other cells. Don't worry, your first cell is always safe. Any safe cells with unsafe neighbors will indicate how many neighbors are unsafe. Use this information to determine which cells are safe/unsafe. 
+
+Take this example: (? means unopened cell)
+
+1??
+122
+000
+
+You the middle two indicates there are 2 unsafe cells in the neighboring 8 spaces. With only 2 cells unopened (the "?"s), then both of them must be unsafe:
+
+1XX
+122
+000
+
+[b]- Usage -[/b]
+Sweep the desired project by providing the relevant project file.
+sweep [PROJECT FILE]
+Example: [color=purple]sweep ~/projects/Epsilon.txt[/color]
+
+[b]- Controls -[/b]
+[color=purple]Left Click[/color] - Open a cell
+[color=purple]Right Click[/color] - Flag a cell to keep track of unsafe cells
