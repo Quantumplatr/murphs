@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Murph's"
-config/version="v0.0.3-alpha"
+config/version="v0.0.5-alpha"
 run/main_scene="res://scenes/terminal/terminal.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/logo/logo.png"
@@ -25,6 +25,7 @@ Sections="*res://autoloads/sections.gd"
 AppManager="*res://autoloads/app_manager.tscn"
 TaskManager="*res://autoloads/task_manager.tscn"
 AudioManager="*res://autoloads/audio/audio_manager.tscn"
+GameManager="*res://autoloads/game_manager/game_manager.gd"
 
 [display]
 

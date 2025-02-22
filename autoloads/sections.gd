@@ -28,6 +28,9 @@ var HSLA: Vector4:
 		anger = v.w
 
 var _running := false
+var running := _running:
+	get:
+		return _running
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,6 +44,7 @@ func _process(delta: float) -> void:
 		sleepiness += delta * ds()
 		luck += delta * dl()
 		anger += delta * da()
+		check()
 
 func dh() -> float:
 	return -0.2
@@ -69,3 +73,11 @@ func stop() -> void:
 func delta(dHSLA: Vector4) -> Vector4:
 	HSLA += dHSLA
 	return HSLA
+
+func check() -> void:
+	if hallucination == 0 \
+			or sleepiness == 0 \
+			or luck == 0 \
+			or anger == 0:
+		GameManager.game_over()
+		stop()

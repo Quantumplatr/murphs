@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0mvvxq3dr5bc"]
+[gd_scene load_steps=17 format=3 uid="uid://d0mvvxq3dr5bc"]
 
 [ext_resource type="PackedScene" uid="uid://buk5cqlpcfcri" path="res://scenes/terminal/windows/graphs/graphs.tscn" id="1_dq6hx"]
 [ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_qftun"]
 [ext_resource type="Script" path="res://scenes/terminal/terminal.gd" id="1_qj1a8"]
 [ext_resource type="PackedScene" uid="uid://bcd37aoj7e8nr" path="res://scenes/terminal/modals/failed_app/failed_app.tscn" id="2_g4luv"]
 [ext_resource type="PackedScene" uid="uid://crfub5jucu64m" path="res://scenes/terminal/windows/info/version_lbl.tscn" id="3_5atls"]
+[ext_resource type="PackedScene" uid="uid://ctoe5v2od1fyt" path="res://scenes/terminal/modals/game_over/game_over.tscn" id="3_bm8up"]
 [ext_resource type="PackedScene" uid="uid://cnqnv5513nhmo" path="res://scenes/terminal/windows/info/date_lbl.tscn" id="3_hbr8k"]
 [ext_resource type="PackedScene" uid="uid://bmy3kpxcpunip" path="res://scenes/terminal/windows/console/console.tscn" id="3_yxkve"]
 [ext_resource type="PackedScene" uid="uid://bn8adihpnqgwr" path="res://scenes/terminal/windows/info/app_lbl.tscn" id="4_g4ghr"]
@@ -27,6 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qj1a8")
 failed_modal = ExtResource("2_g4luv")
+game_over_modal = ExtResource("3_bm8up")
 
 [node name="Bg" type="ColorRect" parent="."]
 layout_mode = 1
@@ -169,6 +171,16 @@ layout_mode = 1
 
 [node name="CRT" parent="." instance=ExtResource("11_sjntn")]
 layout_mode = 1
+a0 = 0.4
+
+[node name="SuperModals" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="KeyPressAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_k072e")

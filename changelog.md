@@ -12,16 +12,24 @@
 
 <!-- mtoc-end -->
 
+## v0.0.4-alpha - 2025-02-22
+
+### Fixes
+
+- Fix default settings values
+- Removed unused audio files (decreased export size)
+
+### Changes
+
+- Decrease HSLA change
+
 ## v0.0.3-alpha - 2025-02-22
 
 ### Features
 
 - Settings app functional
 - Music and ambient audio
-
-### Changes
-
-### Fixes
+- Archive log files
 
 ## v0.0.2-alpha - 2025-02-21
 

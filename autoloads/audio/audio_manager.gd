@@ -13,22 +13,34 @@ var music := AudioServer.get_bus_index("Music")
 var sfx := AudioServer.get_bus_index("SFX")
 var ambient := AudioServer.get_bus_index("Ambient")
 
+var spooky := AudioServer.get_bus_index("Spooky")
+var spooky_vol := 0.0
+const SPOOKY_SPEED := 0.5
+
 enum Sfx { KEYPRESS }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SettingsManager.audio_changed.connect(update_volumes)
-	update_volumes()
 	
-	computer_hum_player.play()
+	restart()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Sections.running:
+		update_spooky(delta)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
 		play_sfx(Sfx.KEYPRESS)
+
+func restart():
+	update_volumes()
+	
+	spooky_vol = 0.0
+	computer_hum_player.play()
+	danger_loop_player.stop()
+	music_player.stop()
 
 func update_volumes():
 	# Master volume
@@ -50,7 +62,24 @@ func update_volumes():
 	var ambient_ind := AudioServer.get_bus_index("Ambient")
 	var ambient_vol := linear_to_db(SettingsManager.settings.ambient_volume * SettingsManager.settings.master_volume)
 	AudioServer.set_bus_volume_db(ambient, ambient_vol)
-	
+
+func update_spooky(delta: float) -> void:
+	var min_HSLA: float = min(
+		Sections.hallucination,
+		Sections.sleepiness,
+		Sections.luck,
+		Sections.anger
+	)
+	var start_spooky_at := 50.0
+	if min_HSLA > start_spooky_at:
+		return
+	# Start spooky vol at 0
+	if not danger_loop_player.playing:
+		danger_loop_player.play()
+	var target: float = lerp(1, 0, min_HSLA / start_spooky_at)
+	spooky_vol = lerp(spooky_vol, target, delta * SPOOKY_SPEED)
+	AudioServer.set_bus_volume_db(spooky, linear_to_db(spooky_vol))
+
 func play_sfx(sfx: Sfx) -> void:
 	match sfx:
 		Sfx.KEYPRESS:

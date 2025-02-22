@@ -41,6 +41,7 @@ var commands: Dictionary = {
 	"whoami": Command.new(whoami, "Shows the logged in user"),
 }
 var hidden_commands: Dictionary = {
+	"dev_lose": Command.new(lose, "Lose the game"),
 	"dev_restart": Command.new(restart, "Restart the game"),
 }
 
@@ -214,6 +215,18 @@ func ls(input: String = "") -> String:
 		str += "[i]%s[/i] " % file
 	return str + "\n"
 
+func lose(input: String = "") -> String:
+	match range(4).pick_random():
+		0:
+			Sections.hallucination = 0
+		1:
+			Sections.sleepiness = 0
+		2:
+			Sections.luck = 0
+		3:
+			Sections.anger = 0
+	return ""
+
 func note(input: String = "") -> String:
 	input = input.strip_edges()
 	if input == "":
@@ -231,8 +244,7 @@ func pwd(input: String = "") -> String:
 	return "[color=steel_blue]%s[/color]\n" % dir.get_current_dir().replace(HOME, "~")
 
 func quit(input: String = "") -> String:
-	# TODO: save?
-	get_tree().quit()
+	GameManager.quit()
 	return ""
 
 func read(input: String = "") -> String:
@@ -254,9 +266,7 @@ func read(input: String = "") -> String:
 	return "%s\n" % content
 
 func restart(input: String = "") -> String:
-	TaskManager.clear_tasks()
-	Sections.reset()
-	get_tree().reload_current_scene()
+	GameManager.restart()
 	return ""
 
 func sudo(input: String = "") -> String:

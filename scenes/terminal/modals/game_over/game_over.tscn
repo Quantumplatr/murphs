@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctoe5v2od1fyt"]
+
+[ext_resource type="Script" path="res://scenes/terminal/modals/game_over/game_over.gd" id="1_7uqck"]
+[ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_vnj4d"]
+[ext_resource type="PackedScene" uid="uid://buk5cqlpcfcri" path="res://scenes/terminal/windows/graphs/graphs.tscn" id="2_en3ne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2vem"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.407, 0.743, 0.658, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdk8e"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.407, 0.743, 0.658, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dr0p"]
+bg_color = Color(0.941, 0.502, 0.502, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oibfx"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.941176, 0.501961, 0.501961, 1)
+
+[node name="GameOver" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7uqck")
+
+[node name="Window" parent="." instance=ExtResource("1_vnj4d")]
+custom_minimum_size = Vector2(149, 60)
+layout_mode = 2
+title = "GAME OVER"
+color = Color(0.941176, 0.501961, 0.501961, 1)
+show_background = true
+focus_color = Color(0.941176, 0.501961, 0.501961, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Terminated" type="RichTextLabel" parent="Window/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][shake][color=light_coral]_____                    _             _           _ 
+/__   \\___ _ __ _ __ ___ (_)_ __   __ _| |_ ___  __| |
+  / /\\/ _ \\ '__| '_ ` _ \\| | '_ \\ / _` | __/ _ \\/ _` |
+ / / |  __/ |  | | | | | | | | | | (_| | ||  __/ (_| |
+ \\/   \\___|_|  |_| |_| |_|_|_| |_|\\__,_|\\__\\___|\\__,_|
+[/color][/shake][/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Description" type="RichTextLabel" parent="Window/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "You have failed. [wave]Murph's[/wave] is very disappointed in your performance. Your family and friends will be notified that a work accident has occured. [wave]Murph's[/wave] will take care of funding your funeral."
+fit_content = true
+
+[node name="Stats" type="HBoxContainer" parent="Window/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Graphs" parent="Window/VBoxContainer/Stats" instance=ExtResource("2_en3ne")]
+layout_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="Window/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartOverBtn" type="Button" parent="Window/VBoxContainer/Actions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0377702, 0.0759321, 0.0861049, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_a2vem")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tdk8e")
+text = "Start Over"
+
+[node name="GiveUpBtn" type="Button" parent="Window/VBoxContainer/Actions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0377702, 0.0759321, 0.0861049, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_0dr0p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oibfx")
+text = "Give Up"
+
+[connection signal="pressed" from="Window/VBoxContainer/Actions/StartOverBtn" to="." method="_on_start_over_btn_pressed"]
+[connection signal="pressed" from="Window/VBoxContainer/Actions/GiveUpBtn" to="." method="_on_give_up_btn_pressed"]
