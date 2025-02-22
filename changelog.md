@@ -12,6 +12,14 @@
 
 <!-- mtoc-end -->
 
+## v0.0.5-alpha - 2025-02-23
+
+### Features
+
+- Spooky ambient noise as HSLA decreases
+- Game over screen
+- dev_lose hidden command
+
 ## v0.0.4-alpha - 2025-02-22
 
 ### Fixes
