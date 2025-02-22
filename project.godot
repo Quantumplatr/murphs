@@ -32,10 +32,6 @@ window/size/viewport_width=1080
 window/size/viewport_height=810
 window/stretch/mode="viewport"
 
-[editor]
-
-export/convert_text_resources_to_binary=false
-
 [file_customization]
 
 folder_colors={
