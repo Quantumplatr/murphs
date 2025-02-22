@@ -1,8 +1,15 @@
 extends Node
 
-@export var KEYPRESS_SOUND: AudioStream
+@export var fail_notif: AudioStream
+@export var ping_notif: AudioStream
+@export var success_notif: AudioStream
+
+@export var game_over_music: AudioStream
 
 @onready var keypress_player: AudioStreamPlayer = %KeypressPlayer
+@onready var click_player: AudioStreamPlayer = %ClickPlayer
+@onready var notif_player: AudioStreamPlayer = %NotifPlayer
+
 @onready var music_player: AudioStreamPlayer = %MusicPlayer
 
 @onready var computer_hum_player: AudioStreamPlayer = %ComputerHumPlayer
@@ -17,7 +24,7 @@ var spooky := AudioServer.get_bus_index("Spooky")
 var spooky_vol := 0.0
 const SPOOKY_SPEED := 0.5
 
-enum Sfx { KEYPRESS }
+enum Sfx { KEYPRESS, CLICK, SUCCESS, FAIL, PING }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +40,10 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
 		play_sfx(Sfx.KEYPRESS)
+	if event is InputEventMouseButton \
+			and event.is_pressed() \
+			and event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
+		play_sfx(Sfx.CLICK)
 
 func restart():
 	update_volumes()
@@ -84,8 +95,21 @@ func play_sfx(sfx: Sfx) -> void:
 	match sfx:
 		Sfx.KEYPRESS:
 			keypress_player.play()
+		Sfx.CLICK:
+			click_player.play()
+		Sfx.PING:
+			notif_player.stream = ping_notif
+			notif_player.play()
+		Sfx.FAIL:
+			notif_player.stream = fail_notif
+			notif_player.play()
+		Sfx.SUCCESS:
+			notif_player.stream = success_notif
+			notif_player.play()
 
 func play_music(stream: AudioStream) -> void:
+	if not stream:
+		return
 	music_player.stream = stream
 	music_player.play()
 

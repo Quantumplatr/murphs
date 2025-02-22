@@ -95,13 +95,7 @@ bg_color = Color(0.1, 0.1, 0.1, 1)
 focus_color = Color(0.407332, 0.742735, 0.657785, 1)
 
 [node name="Tasks" parent="Main/StatusAndMain/Columns/Left/TasksWin" instance=ExtResource("6_t8p2x")]
-visible = false
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Main/StatusAndMain/Columns/Left/TasksWin"]
-layout_mode = 2
-text = "Coming soon..."
-horizontal_alignment = 1
 
 [node name="Stats" parent="Main/StatusAndMain/Columns/Left" instance=ExtResource("1_qftun")]
 custom_minimum_size = Vector2(109, 60)
@@ -117,7 +111,8 @@ theme_override_constants/separation = 10
 layout_mode = 2
 alignment = 0
 
-[node name="Label" type="RichTextLabel" parent="Main/StatusAndMain/Columns/Left/Stats/Cols"]
+[node name="CrypticLbl" type="RichTextLabel" parent="Main/StatusAndMain/Columns/Left/Stats/Cols"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
@@ -126,6 +121,7 @@ text = "[encrypted]placeholderplaceholderplac[/encrypted]
 [encrypted level=1]placeholderplaceholderplac[/encrypted]"
 fit_content = true
 scroll_active = false
+autowrap_mode = 1
 custom_effects = [SubResource("RichTextEffect_wrud6")]
 
 [node name="Right" type="VBoxContainer" parent="Main/StatusAndMain/Columns"]

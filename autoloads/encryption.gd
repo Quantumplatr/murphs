@@ -34,3 +34,29 @@ func unlock(input: String) -> String:
 	else:
 		unlocked[level] = true
 		return "[b]%s[/b] encryption has been decrypted.\n" % [label]
+
+func clear() -> void:
+	for key in unlocked:
+		unlocked[key] = false
+
+func rot13(input: String) -> String:
+	var output: String = ""
+	var A = "A".unicode_at(0)
+	var Z = "Z".unicode_at(0)
+	var a = "a".unicode_at(0)
+	var z = "z".unicode_at(0)
+	
+	for char in input:
+		# Get unicode value
+		var num := char.unicode_at(0)
+		
+		# Only move [a-zA-Z]
+		if (a <= num and num <= z) or (A <= num and num <= Z):
+			# Uppercase
+			if char == char.to_upper():
+				num = wrap(num + 13, A, Z + 1) # +1 b/c exclusive
+			# Lowercase
+			else:
+				num = wrap(num + 13, a, z + 1) # +1 b/c exclusive
+		output += char(num)
+	return output

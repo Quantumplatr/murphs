@@ -189,9 +189,11 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [resource]
+Button/colors/font_color = Color(0.0377702, 0.0759321, 0.0861049, 1)
 Button/styles/hover = SubResource("StyleBoxFlat_t3kgc")
 Button/styles/normal = SubResource("StyleBoxFlat_kvm3e")
 Button/styles/pressed = SubResource("StyleBoxFlat_00qu3")
+FlatButton/colors/font_color = Color(1, 1, 1, 1)
 HSlider/icons/grabber = ExtResource("1_b6mi2")
 HSlider/icons/grabber_disabled = ExtResource("1_b6mi2")
 HSlider/icons/grabber_highlight = ExtResource("1_b6mi2")

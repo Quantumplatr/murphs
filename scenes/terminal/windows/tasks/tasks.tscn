@@ -2,10 +2,30 @@
 
 [ext_resource type="Script" path="res://scenes/terminal/windows/tasks/tasks.gd" id="1_17ued"]
 
-[node name="Tasks" type="ScrollContainer"]
+[node name="Tasks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_17ued")
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="Scroll/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -13,3 +33,9 @@ item_count = 3
 item_0/text = "Refine 3s in Omega"
 item_1/text = "Sweep Epsilon"
 item_2/text = "Nav to A in Tau"
+
+[node name="TimerLbl" type="Label" parent="Scroll/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5)
+text = "New task in 20s"

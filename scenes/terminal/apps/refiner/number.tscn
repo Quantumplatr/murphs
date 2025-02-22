@@ -25,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+theme_type_variation = &"FlatButton"
 text = "-1"
 flat = true
 

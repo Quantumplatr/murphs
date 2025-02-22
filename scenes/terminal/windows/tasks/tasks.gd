@@ -1,6 +1,7 @@
-extends ScrollContainer
+extends Control
 
-@onready var list: ItemList = $ItemList
+@onready var list: ItemList = %ItemList
+@onready var timer_lbl: Label = %TimerLbl
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +14,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if not TaskManager.timer.is_stopped():
+		timer_lbl.text = "New task in %ds" % TaskManager.timer.time_left
 
 func _on_task_added(task: TaskData) -> void:
 	print("Task Added: %s" % task)

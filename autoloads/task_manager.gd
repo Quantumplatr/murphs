@@ -7,6 +7,8 @@ signal cleared()
 
 @export var available_apps: Array[AppData] = []
 
+@onready var timer: Timer = $Timer
+
 var tasks: Array[TaskData] = []
 
 var todo: Array[TaskData]:
@@ -15,7 +17,7 @@ var todo: Array[TaskData]:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	AppManager.succeeded.connect(_app_success)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -39,3 +41,21 @@ func create_tasks(count: int) -> Array[TaskData]:
 func clear_tasks() -> void:
 	tasks.clear()
 	cleared.emit()
+
+func _app_success(app: AppData) -> void:
+	for i in tasks.size():
+		var task: TaskData = tasks[i]
+		if task.app == app and task.project == app.project:
+			tasks.remove_at(i)
+			Sections.delta(task.dHSLA)
+			task_completed.emit(task)
+			break
+
+func start_timer() -> void:
+	timer.start()
+
+func stop_timer() -> void:
+	timer.stop()
+
+func _on_timer_timeout() -> void:
+	create_tasks(1)

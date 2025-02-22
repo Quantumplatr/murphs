@@ -12,6 +12,23 @@
 
 <!-- mtoc-end -->
 
+## v0.0.6-alpha - 2025-02-23
+
+### Features
+
+- cat alias for read
+- Click SFX
+- Secret phrase in stats window
+- Hidden final app placeholder
+- Game over SFX loop
+- Murphsweeper win screen
+
+### Fixed
+
+- Fixed read files bug
+- Fixed some text file wrapping
+- Fixed cursor not hidden on restart
+
 ## v0.0.5-alpha - 2025-02-23
 
 ### Features

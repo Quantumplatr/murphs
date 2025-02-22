@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cb84x0nqdg0uj"
+path="res://.godot/imported/Signal Negative Wood Chimes B.wav-8fdc8c24c103657b46111e9e75bb08ed.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/non_loop/notifications/Signal Negative Wood Chimes B.wav"
+dest_files=["res://.godot/imported/Signal Negative Wood Chimes B.wav-8fdc8c24c103657b46111e9e75bb08ed.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

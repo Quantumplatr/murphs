@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqti24waode7h"
+path="res://.godot/imported/Signal Positive Wood Chimes B.wav-cc77c45c2ec8d1f985c2d8f815e4f394.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/non_loop/notifications/success/Signal Positive Wood Chimes B.wav"
+dest_files=["res://.godot/imported/Signal Positive Wood Chimes B.wav-cc77c45c2ec8d1f985c2d8f815e4f394.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

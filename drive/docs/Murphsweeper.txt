@@ -16,7 +16,7 @@ You the middle two indicates there are 2 unsafe cells in the neighboring 8 space
 [b]- Usage -[/b]
 Sweep the desired project by providing the relevant project file.
 sweep [PROJECT FILE]
-Example: [color=purple]sweep ~/projects/Epsilon.txt[/color]
+Example: [color=purple]sweep Epsilon.txt[/color]
 
 [b]- Controls -[/b]
 [color=purple]Left Click[/color] - Open a cell

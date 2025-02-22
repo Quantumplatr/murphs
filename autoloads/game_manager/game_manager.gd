@@ -12,14 +12,17 @@ func _process(delta: float) -> void:
 	pass
 
 func restart() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	TaskManager.clear_tasks()
 	Sections.reset()
 	AppManager.close_app()
 	AudioManager.restart()
+	Encryption.clear()
 	get_tree().reload_current_scene()
 
 func game_over() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	AudioManager.play_music(AudioManager.game_over_music)
 	game_failed.emit()
 
 func quit() -> void:

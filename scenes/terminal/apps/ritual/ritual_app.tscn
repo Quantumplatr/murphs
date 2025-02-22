@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgfg3x7pke7ah"]
+
+[ext_resource type="Script" path="res://scenes/terminal/apps/app.gd" id="1_iavow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ngu3"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="RitualApp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iavow")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[shake]The Ritual is coming soon...[/shake]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Button" type="Button" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ngu3")
+text = "Start the Ritual"

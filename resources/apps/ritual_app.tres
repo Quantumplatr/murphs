@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AppData" load_steps=4 format=3 uid="uid://bonofap7nxwla"]
+
+[ext_resource type="AudioStream" uid="uid://dbpuj2citv4ha" path="res://assets/audio/music/scheming/Chiptune Vol4 Scheming Main.wav" id="1_bp3qu"]
+[ext_resource type="PackedScene" uid="uid://dgfg3x7pke7ah" path="res://scenes/terminal/apps/ritual/ritual_app.tscn" id="2_onfyq"]
+[ext_resource type="Script" path="res://resources/custom/app_data/app_data.gd" id="3_u26pq"]
+
+[resource]
+script = ExtResource("3_u26pq")
+display_name = "The Ritual"
+command = "ritual"
+description = "The Thought Ritual"
+scene = ExtResource("2_onfyq")
+task_gen_string = "App Task in %s"
+project = 0
+music = ExtResource("1_bp3qu")

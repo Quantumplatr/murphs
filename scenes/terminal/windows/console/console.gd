@@ -43,6 +43,7 @@ var commands: Dictionary = {
 var hidden_commands: Dictionary = {
 	"dev_lose": Command.new(lose, "Lose the game"),
 	"dev_restart": Command.new(restart, "Restart the game"),
+	"cat": commands["read"],
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -125,11 +126,16 @@ func run(input: String) -> String:
 	var command_str := tokens[0]
 	
 	var app: AppData = null
-	var app_exists := AppManager.try_load(command_str)
-	if app_exists:
-		history.push_back(input)
-		history_index = -1 # Reset history navigation
-		return ""
+	var app_error: AppManager.AppError = AppManager.try_load(command_str, dir.get_current_dir(), tokens[1] if len(tokens) > 1 else "")
+	match app_error:
+		AppManager.AppError.OK:
+			history.push_back(input)
+			history_index = -1 # Reset history navigation
+			return ""
+		AppManager.AppError.MISSING_PROJECT:
+			return "Missing project file\nUsage: %s [PROJECT FILE]\nExample: [color=purple]%s Gamma.txt[/color]\n" % [command_str, command_str]
+		AppManager.AppError.NOT_FOUND:
+			pass
 	
 	if command_str not in commands and command_str not in hidden_commands:
 		return "command not found: %s\nTry [color=purple]help[/color] to see available commands/apps\n" % command_str
@@ -163,11 +169,13 @@ func cd(input: String = "") -> String:
 		input = HOME
 	var res: Error = dir.change_dir(input)
 	if res != OK:
+		print("[FAILED] cd to: %s (Error: %s)" % [input, res])
 		return "Invalid directory\n" + \
 		"Usage: cd [DIRECTORY]\n" + \
 		".. to go up a directory\n" + \
 		"No directory or ~ to go home\n"
 	# If bad path, go HOME
+	print("cd to: %s" % dir.get_current_dir())
 	if not dir.get_current_dir().begins_with(HOME):
 		dir.change_dir(HOME)
 	update_prompt()
@@ -250,9 +258,32 @@ func quit(input: String = "") -> String:
 func read(input: String = "") -> String:
 	input = sanitize_path(input)
 	
+	# --- Make sure that they are not reading outside of HOME (res://drive) --- #
+	# Using DirAccess b/c relative paths can get past the FileAccess
+	# For example, in ~, using ../README.md accesses the file 
+	# res://drive/../README.md so it's actually reading res://README.md
+	# By checking the directory, we can actually check that it's w/in drive.
+	# Meaning DirAccess gets res:// instead of res://drive/.. so we can tell
+	# that it doesn't start w/ res://drive
+	
+	# Get folder name (e.g. ../README.md -> ..)
+	var tokens := input.split("/")
+	var folder_name: String = "/".join(tokens.slice(0, -1))
+	
+	print("input: %s" % input)
+	# Access folder to see what the directory is
+	# Add current directory if not absolute path (absolute if starts with HOME)
+	var full_path := folder_name if folder_name.begins_with(HOME) else dir.get_current_dir() + "/" + folder_name
+	var folder = DirAccess.open(full_path)
+	# If calculated folder is bad, give bad input.
+	# (e.g. res://drive/.. -> res:// which doesn't start with HOME)
+	if not folder.get_current_dir().begins_with(HOME):
+		input = "You sneaky, sneaky trying to access bad files."
+	
+	# Output error message
 	const usage := "Usage: read [FILE]\n"
 	if input == "":
-		return "Usage: read [FILE]\nExample: read ~/BASICS.txt\n"
+		return "Usage: read [FILE]\nExample: read BASICS.txt\n"
 	if not dir.file_exists(input):
 		return "File not found\n%s" % usage
 	

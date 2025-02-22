@@ -4,6 +4,8 @@ extends App
 @onready var flagged_lbl: Label = %FlaggedLbl
 @onready var cleared_lbl: Label = %ClearedLbl
 
+@onready var success_display: VBoxContainer = %SuccessDisplay
+
 @export var cols: int = 12
 @export var rows: int = 6
 @export var TOTAL_MINES: int = 8
@@ -23,6 +25,9 @@ var cleared: int = 0:
 var cells: Array[Array] = []
 
 func _ready() -> void:
+	grid.show()
+	success_display.hide()
+	
 	for child in grid.get_children():
 		child.queue_free()
 	
@@ -77,6 +82,8 @@ func open(cell: Cell) -> void:
 		cleared += 1
 	else:
 		AppManager.fail()
+	if cleared == rows * cols - TOTAL_MINES:
+		success()
 	
 	# If 0, open neighbors
 	if cell.num_neighbors == 0:
@@ -132,3 +139,12 @@ func update_cleared() -> void:
 func update_flagged() -> void:
 	if flagged_lbl:
 		flagged_lbl.text = "%d/%d" % [flagged, TOTAL_MINES]
+
+func success() -> void:
+	grid.hide()
+	success_display.show()
+	AppManager.success()
+
+
+func _on_close_btn_pressed() -> void:
+	AppManager.close_app()

@@ -21,9 +21,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = -8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Windows"]
-custom_minimum_size = Vector2(225, 0)
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 
 [node name="Info" parent="Windows/VBoxContainer" instance=ExtResource("3_ef7x2")]
@@ -89,8 +90,26 @@ layout_mode = 2
 
 [node name="Grid" type="GridContainer" parent="Windows/Main/CenterContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 columns = 9
 
 [node name="Cell" parent="Windows/Main/CenterContainer/Grid" instance=ExtResource("2_h2v1c")]
 layout_mode = 2
+
+[node name="SuccessDisplay" type="VBoxContainer" parent="Windows/Main/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Windows/Main/CenterContainer/SuccessDisplay"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[wave]Success![/wave]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CloseBtn" type="Button" parent="Windows/Main/CenterContainer/SuccessDisplay"]
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="Windows/Main/CenterContainer/SuccessDisplay/CloseBtn" to="." method="_on_close_btn_pressed"]

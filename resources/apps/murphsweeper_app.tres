@@ -12,4 +12,5 @@ description = "Clear away valid cells"
 scene = ExtResource("1_nwqt7")
 task_gen_string = "Sweep %s"
 project = 0
+requires_project = true
 music = ExtResource("1_biul6")

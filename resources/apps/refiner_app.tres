@@ -12,4 +12,5 @@ description = "Refine the given project file"
 scene = ExtResource("1_h2ae3")
 task_gen_string = "Refine %ds in %s"
 project = 0
+requires_project = true
 music = ExtResource("1_kgojy")
