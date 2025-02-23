@@ -3,6 +3,7 @@ extends Node
 signal task_added(task: TaskData)
 signal task_failed(task: TaskData)
 signal task_completed(task: TaskData)
+signal task_highlighted(task: TaskData)
 signal cleared()
 
 @export var available_apps: Array[AppData] = []
@@ -59,3 +60,7 @@ func stop_timer() -> void:
 
 func _on_timer_timeout() -> void:
 	create_tasks(1)
+
+func highlight_index(i: int) -> void:
+	print(i, tasks[i].title)
+	task_highlighted.emit(tasks[i])

@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl21w07r87hfj"]
+
+[ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_hy6hk"]
+[ext_resource type="Script" path="res://scenes/terminal/modals/task_info/task_info_modal.gd" id="1_o1iww"]
+[ext_resource type="Resource" uid="uid://cisxuosfvb3vq" path="res://resources/apps/murphsweeper_app.tres" id="2_0u2kw"]
+[ext_resource type="Script" path="res://resources/custom/task_data/task_data.gd" id="3_iodwv"]
+[ext_resource type="PackedScene" uid="uid://ddaw2uyxii5q5" path="res://scenes/terminal/d_hsla_display.tscn" id="5_d0f52"]
+
+[sub_resource type="Resource" id="Resource_o8c6g"]
+script = ExtResource("3_iodwv")
+app = ExtResource("2_0u2kw")
+title = "Task Title"
+status = 0
+project = 0
+dHSLA = Vector4(0, 0, 0, 0)
+
+[node name="TaskInfoModal" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o1iww")
+task = SubResource("Resource_o8c6g")
+
+[node name="Window" parent="." instance=ExtResource("1_hy6hk")]
+custom_minimum_size = Vector2(149, 60)
+layout_mode = 2
+title = "Task Info"
+show_background = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Window"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Main" type="HBoxContainer" parent="Window/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/MarginContainer/VBoxContainer/Main"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Window/MarginContainer/VBoxContainer/Main/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 21
+columns = 2
+
+[node name="AppLbl" type="Label" parent="Window/MarginContainer/VBoxContainer/Main/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "App:"
+
+[node name="AppDisplay" type="Label" parent="Window/MarginContainer/VBoxContainer/Main/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "APP_NAME"
+
+[node name="ProjectLbl" type="Label" parent="Window/MarginContainer/VBoxContainer/Main/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Project:"
+
+[node name="ProjectDisplay" type="Label" parent="Window/MarginContainer/VBoxContainer/Main/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PROJECT"
+
+[node name="HelpLbl" type="Label" parent="Window/MarginContainer/VBoxContainer/Main/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Usage:"
+
+[node name="HelpDisplay" type="RichTextLabel" parent="Window/MarginContainer/VBoxContainer/Main/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=purple]app PROJECT[/color]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="Window/MarginContainer/VBoxContainer/Main"]
+layout_mode = 2
+
+[node name="dHSLADisplay" parent="Window/MarginContainer/VBoxContainer/Main/CenterContainer" instance=ExtResource("5_d0f52")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ContinueLbl" type="RichTextLabel" parent="Window/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Press [wave][color=purple]<space>[/color][/wave] to get back to work"
+fit_content = true
+autowrap_mode = 0

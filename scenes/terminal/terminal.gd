@@ -9,6 +9,7 @@ extends Control
 
 @export var failed_modal: PackedScene
 @export var game_over_modal: PackedScene
+@export var task_info_modal: PackedScene
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +23,7 @@ func _ready() -> void:
 	AppManager.started.connect(_start_app)
 	AppManager.failed.connect(_fail_app)
 	GameManager.game_failed.connect(_game_failed)
+	TaskManager.task_highlighted.connect(_on_show_task)
 	TaskManager.create_tasks(initial_tasks)
 	_start_app(AppManager.current)
 
@@ -51,3 +53,8 @@ func _game_failed():
 	#modals.add_child(m)
 	super_modals.add_child(m)
 	m.grab_focus()
+
+func _on_show_task(task: TaskData) -> void:
+	var m: TaskInfoModal = task_info_modal.instantiate()
+	m.task = task
+	modals.add_child(m)

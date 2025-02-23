@@ -29,6 +29,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+allow_reselect = true
+allow_rmb_select = true
 item_count = 3
 item_0/text = "Refine 3s in Omega"
 item_1/text = "Sweep Epsilon"
@@ -39,3 +41,5 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.5)
 text = "New task in 20s"
+
+[connection signal="item_selected" from="Scroll/VBoxContainer/ItemList" to="." method="_on_item_list_item_selected"]

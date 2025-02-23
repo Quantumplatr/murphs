@@ -1,5 +1,6 @@
 extends Control
 
+
 @onready var list: ItemList = %ItemList
 @onready var timer_lbl: Label = %TimerLbl
 
@@ -34,3 +35,7 @@ func update_list() -> void:
 	list.clear()
 	for task: TaskData in TaskManager.todo:
 		list.add_item(task.title)
+
+
+func _on_item_list_item_selected(index: int) -> void:
+	TaskManager.highlight_index(index)

@@ -62,12 +62,19 @@ func fail() -> void:
 
 func get_project(dir: String, input: String) -> AppData.Project:
 	var file_path := "%s/%s" % [dir,input]
-	var file := FileAccess.open(file_path, FileAccess.READ)
 	
-	if not file:
-		return AppData.Project.NONE
+	# TODO: maybe get this to work. exported files won't return get_path
+	#       so idrk what to do in export. doing a workaround with just the input now
+	#var file := FileAccess.open(file_path, FileAccess.READ)
+	#
+	#if not file:
+		#return AppData.Project.NONE
+	#
+	#var tokens := file.get_path().split("/") # [..., Gamma.txt]
+	#var file_name := tokens[len(tokens) - 1] # E.g. Gamma.txt
+	#var project_name := file_name.split(".")[0] # E.g. Gamma
 	
-	var tokens := file.get_path().split("/") # [..., Gamma.txt]
+	var tokens := input.split("/") # [..., Gamma.txt]
 	var file_name := tokens[len(tokens) - 1] # E.g. Gamma.txt
 	var project_name := file_name.split(".")[0] # E.g. Gamma
 	

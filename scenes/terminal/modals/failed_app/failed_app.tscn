@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/terminal/modals/failed_app/failed_app.gd" id="1_0igws"]
 [ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_fuw6c"]
-[ext_resource type="PackedScene" uid="uid://dusxqqeviocxc" path="res://scenes/terminal/windows/graphs/bar.tscn" id="2_elmw8"]
+[ext_resource type="PackedScene" uid="uid://ddaw2uyxii5q5" path="res://scenes/terminal/d_hsla_display.tscn" id="3_5ws4k"]
 
 [node name="FailedApp" type="CenterContainer"]
 anchors_preset = 15
@@ -38,58 +38,8 @@ layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="Window/VBoxContainer/MarginContainer"]
+[node name="dHSLADisplay" parent="Window/VBoxContainer/MarginContainer" instance=ExtResource("3_5ws4k")]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/h_separation = 8
-columns = 4
-
-[node name="hLbl" type="Label" parent="Window/VBoxContainer/MarginContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.941176, 0.501961, 0.501961, 1)
-text = "-50"
-horizontal_alignment = 1
-
-[node name="sLbl" type="Label" parent="Window/VBoxContainer/MarginContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.941176, 0.501961, 0.501961, 1)
-text = "-50"
-horizontal_alignment = 1
-
-[node name="lLbl" type="Label" parent="Window/VBoxContainer/MarginContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.941176, 0.501961, 0.501961, 1)
-text = "-50"
-horizontal_alignment = 1
-
-[node name="aLbl" type="Label" parent="Window/VBoxContainer/MarginContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.941176, 0.501961, 0.501961, 1)
-text = "-50"
-horizontal_alignment = 1
-
-[node name="hBar" parent="Window/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_elmw8")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="sBar" parent="Window/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_elmw8")]
-unique_name_in_owner = true
-layout_mode = 2
-title = "S"
-
-[node name="lBar" parent="Window/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_elmw8")]
-unique_name_in_owner = true
-layout_mode = 2
-title = "L"
-
-[node name="aBar" parent="Window/VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_elmw8")]
-unique_name_in_owner = true
-layout_mode = 2
-title = "A"
 
 [node name="ContinueLbl" type="RichTextLabel" parent="Window/VBoxContainer"]
 layout_mode = 2

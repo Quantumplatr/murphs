@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0mvvxq3dr5bc"]
+[gd_scene load_steps=18 format=3 uid="uid://d0mvvxq3dr5bc"]
 
 [ext_resource type="PackedScene" uid="uid://buk5cqlpcfcri" path="res://scenes/terminal/windows/graphs/graphs.tscn" id="1_dq6hx"]
 [ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_qftun"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cnqnv5513nhmo" path="res://scenes/terminal/windows/info/date_lbl.tscn" id="3_hbr8k"]
 [ext_resource type="PackedScene" uid="uid://bmy3kpxcpunip" path="res://scenes/terminal/windows/console/console.tscn" id="3_yxkve"]
 [ext_resource type="PackedScene" uid="uid://bn8adihpnqgwr" path="res://scenes/terminal/windows/info/app_lbl.tscn" id="4_g4ghr"]
+[ext_resource type="PackedScene" uid="uid://dl21w07r87hfj" path="res://scenes/terminal/modals/task_info/task_info_modal.tscn" id="4_sx8kb"]
 [ext_resource type="Script" path="res://effects/text/rich_text_encrypted.gd" id="5_jxkgg"]
 [ext_resource type="PackedScene" uid="uid://dg55p6cf1hale" path="res://scenes/terminal/modals/welcome_modal.tscn" id="5_srkax"]
 [ext_resource type="PackedScene" uid="uid://dth7ij0slapvm" path="res://scenes/terminal/cursor/cursor.tscn" id="6_k0bhq"]
@@ -29,6 +30,7 @@ grow_vertical = 2
 script = ExtResource("1_qj1a8")
 failed_modal = ExtResource("2_g4luv")
 game_over_modal = ExtResource("3_bm8up")
+task_info_modal = ExtResource("4_sx8kb")
 
 [node name="Bg" type="ColorRect" parent="."]
 layout_mode = 1

@@ -12,7 +12,19 @@
 
 <!-- mtoc-end -->
 
-## v0.0.6-alpha - 2025-02-23
+## v0.1.1-alpha - 2025-02-22
+
+### Features
+
+- Task info modal
+
+## v0.1.0-alpha - 2025-02-22
+
+### Features
+
+- Basic tasks implemented
+
+## v0.0.6-alpha - 2025-02-22
 
 ### Features
 
@@ -29,7 +41,7 @@
 - Fixed some text file wrapping
 - Fixed cursor not hidden on restart
 
-## v0.0.5-alpha - 2025-02-23
+## v0.0.5-alpha - 2025-02-22
 
 ### Features
 
