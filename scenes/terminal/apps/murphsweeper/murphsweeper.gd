@@ -9,6 +9,8 @@ extends App
 @export var cols: int = 12
 @export var rows: int = 6
 @export var TOTAL_MINES: int = 8
+@export var GOOD_LUCK_TOTAL: int = 5
+@export var GOOD_LUCK_THRESH: float = 60.0
 
 var mines: int = 0
 var flagged: int = 0:
@@ -43,6 +45,10 @@ func _ready() -> void:
 			c.cell_unflagged.connect(_on_unflagged)
 			grid.add_child(c)
 		cells.append(row)
+	
+	# Apply luck
+	if Sections.luck >= GOOD_LUCK_THRESH:
+		TOTAL_MINES = GOOD_LUCK_TOTAL
 	
 	update_cleared()
 	update_flagged()

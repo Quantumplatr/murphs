@@ -47,6 +47,13 @@ func _app_success(app: AppData) -> void:
 	for i in tasks.size():
 		var task: TaskData = tasks[i]
 		if task.app == app and task.project == app.project:
+			
+			# If refiner task, make sure digit is correct
+			if task is RefinerTaskData:
+				var completed_digit = (app as RefinerAppData).completed_digit
+				if task.digit != completed_digit:
+					continue
+			
 			tasks.remove_at(i)
 			Sections.delta(task.dHSLA)
 			task_completed.emit(task)

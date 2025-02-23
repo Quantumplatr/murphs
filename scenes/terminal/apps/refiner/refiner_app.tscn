@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3qpgxxoynm2a"]
+[gd_scene load_steps=4 format=3 uid="uid://d3qpgxxoynm2a"]
 
 [ext_resource type="Script" path="res://scenes/terminal/apps/refiner/refiner_app.gd" id="1_dmjv1"]
 [ext_resource type="PackedScene" uid="uid://mb0u8lfkkqu6" path="res://scenes/terminal/apps/refiner/number.tscn" id="2_gn2wm"]
+[ext_resource type="PackedScene" uid="uid://bx5n8s3a0lehm" path="res://scenes/terminal/windows/success_display.tscn" id="3_fhd3f"]
 
 [node name="RefinerApp" type="Control"]
 layout_mode = 3
@@ -13,7 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_dmjv1")
 NUMBER_SCENE = ExtResource("2_gn2wm")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Main" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,8 +22,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="List" type="GridContainer" parent="CenterContainer"]
+[node name="List" type="GridContainer" parent="Main"]
 layout_mode = 2
 theme_override_constants/h_separation = 31
 theme_override_constants/v_separation = 44
 columns = 21
+
+[node name="SuccessDisplay" parent="." instance=ExtResource("3_fhd3f")]
+layout_mode = 1

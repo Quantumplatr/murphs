@@ -12,6 +12,14 @@
 
 <!-- mtoc-end -->
 
+## Unreleased
+
+### Features
+
+- Links in credits work
+- L stat affects Murphsweeper
+- L stat affects Calibration
+
 ## v0.2.0-alpha - 2025-02-22
 
 ### Features

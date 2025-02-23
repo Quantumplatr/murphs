@@ -56,7 +56,7 @@ Ethan Christensen
 
 [b]--- Music & SFX --- [/b]
 [url=https://ovanisound.com/]Ovani Sound[/url]
-[url=https://www.kenney.nl/assets/]Click SFX by Kenney[/url]
+[url=https://www.kenney.nl/assets/ui-audio]Click SFX by Kenney[/url]
 
 [b]--- Play Testers ---[/b]
 Carsen Monaco
@@ -71,3 +71,5 @@ Milo B.
 
 
 [/center]"
+
+[connection signal="meta_clicked" from="Tabs/Credits/Label" to="." method="_on_label_meta_clicked"]

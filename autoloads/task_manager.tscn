@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh6a2wmkmvtoo"]
+[gd_scene load_steps=6 format=3 uid="uid://dh6a2wmkmvtoo"]
 
 [ext_resource type="Script" path="res://autoloads/task_manager.gd" id="1_xt287"]
 [ext_resource type="Script" path="res://resources/custom/app_data/app_data.gd" id="2_sd1nw"]
+[ext_resource type="Resource" uid="uid://xg0chs4s0ibk" path="res://resources/apps/refiner_app.tres" id="3_si816"]
 [ext_resource type="Resource" uid="uid://cisxuosfvb3vq" path="res://resources/apps/murphsweeper_app.tres" id="4_qvrti"]
 [ext_resource type="Resource" uid="uid://odxqd3dasqw3" path="res://resources/apps/calibrate_app.tres" id="4_s1inl"]
 
 [node name="TaskManager" type="Node"]
 script = ExtResource("1_xt287")
-available_apps = Array[ExtResource("2_sd1nw")]([ExtResource("4_s1inl"), ExtResource("4_qvrti")])
+available_apps = Array[ExtResource("2_sd1nw")]([ExtResource("4_s1inl"), ExtResource("4_qvrti"), ExtResource("3_si816")])
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0

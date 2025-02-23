@@ -81,14 +81,21 @@ func update_spooky(delta: float) -> void:
 		Sections.luck,
 		Sections.anger
 	)
-	var start_spooky_at := 50.0
-	if min_HSLA > start_spooky_at:
-		return
-	# Start spooky vol at 0
+	# Ensure playing
 	if not danger_loop_player.playing:
 		danger_loop_player.play()
+		
+	# If min value of HSLA is < 50, apply spooky
+	var start_spooky_at := 50.0
+	
+	# If min_HSLA > start_spooky_at, 0 volume
 	var target: float = lerp(1, 0, min_HSLA / start_spooky_at)
+	target = clamp(target, 0, 1)
+	
+	# Move volume towards target
 	spooky_vol = lerp(spooky_vol, target, delta * SPOOKY_SPEED)
+	
+	# Apply volume
 	AudioServer.set_bus_volume_db(spooky, linear_to_db(spooky_vol))
 
 func play_sfx(sfx: Sfx) -> void:

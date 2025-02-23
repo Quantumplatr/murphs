@@ -15,6 +15,9 @@ var count: int = 30
 var initial: int = 1
 var clicked: int = 0
 
+const good_luck_thresh: float = 60.0
+const good_luck_total: float = 15
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_view.show()
@@ -24,6 +27,8 @@ func _ready() -> void:
 	update_lbl()
 
 func start() -> void:
+	if Sections.luck >= good_luck_thresh:
+		total = good_luck_total
 	count = total
 	update_lbl()
 	start_view.hide()

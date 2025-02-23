@@ -1,6 +1,11 @@
 extends Control
+class_name Number
+
+signal clicked(num: Number)
 
 var value := -1
+
+var cleared: bool = false
 
 @onready var button: Button = $Button
 
@@ -30,19 +35,26 @@ func _process(delta: float) -> void:
 	update()
 
 func update():
-	button.position = direction * sin(time) * dist - button.size / 2.0
-	
-	var button_center: Vector2 = button.global_position + button.size / 2.0
-	var mouse_dist: float = (get_global_mouse_position() - button_center).length()
-	
-	
-	if mouse_dist < DETECT_MOUSE_DIST:
-		var t: float = SCALE_CURVE.sample(mouse_dist / DETECT_MOUSE_DIST)
-		var font_size: float = lerp(MIN_FONT_SIZE, MAX_FONT_SIZE, t)
-		button.add_theme_font_size_override("font_size", font_size)
-	else:
-		button.remove_theme_font_size_override("font_size")
+	if button:
+		button.position = direction * sin(time) * dist - button.size / 2.0
+		
+		var button_center: Vector2 = button.global_position + button.size / 2.0
+		var mouse_dist: float = (get_global_mouse_position() - button_center).length()
+		
+		
+		if mouse_dist < DETECT_MOUSE_DIST:
+			var t: float = SCALE_CURVE.sample(mouse_dist / DETECT_MOUSE_DIST)
+			var font_size: float = lerp(MIN_FONT_SIZE, MAX_FONT_SIZE, t)
+			button.add_theme_font_size_override("font_size", font_size)
+		else:
+			button.remove_theme_font_size_override("font_size")
 
 
 func _on_button_pressed() -> void:
-	print("btn")
+	clicked.emit(self)
+
+func clear() -> void:
+	if not cleared:
+		cleared = true
+		button.queue_free() # Delete
+		button = null # Remove reference
