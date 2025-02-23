@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RefinerAppDatA" load_steps=4 format=3 uid="uid://xg0chs4s0ibk"]
+[gd_resource type="Resource" script_class="RefinerAppData" load_steps=4 format=3 uid="uid://xg0chs4s0ibk"]
 
 [ext_resource type="PackedScene" uid="uid://d3qpgxxoynm2a" path="res://scenes/terminal/apps/refiner/refiner_app.tscn" id="1_h2ae3"]
 [ext_resource type="AudioStream" uid="uid://ciiu5kcrbiemn" path="res://assets/audio/music/vision/Chiptune Vol3 Vision Main.wav" id="1_kgojy"]
@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_gnkj3")
+completed_digit = -1
 display_name = "Refiner"
 command = "refine"
 description = "Refine the given project file"

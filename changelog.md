@@ -19,6 +19,7 @@
 - archive and lore flushed out
 - Game over SFX
 - End game implemented
+- Improved history
 
 ## v0.3.0-alpha - 2025-02-22
 

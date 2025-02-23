@@ -113,6 +113,9 @@ func prompt() -> String:
 
 func run(input: String) -> String:
 	input = input.strip_edges()
+	if len(history) == 0 or history[len(history)-1] != input:
+		history.append(input)
+		history_index = -1 # Reset history navigation
 	
 	# TODO: improve? maybe when commands are resources?
 	if dir.file_exists(sanitize_path(input)):
@@ -130,8 +133,6 @@ func run(input: String) -> String:
 	var app_error: AppManager.AppError = AppManager.try_load(command_str, dir.get_current_dir(), tokens[1] if len(tokens) > 1 else "")
 	match app_error:
 		AppManager.AppError.OK:
-			history.push_back(input)
-			history_index = -1 # Reset history navigation
 			return ""
 		AppManager.AppError.MISSING_PROJECT:
 			return "Missing project file\nUsage: %s [PROJECT NAME]\nExample: [color=purple]%s Gamma[/color]\n" % [command_str, command_str]
@@ -141,8 +142,6 @@ func run(input: String) -> String:
 	if command_str not in commands and command_str not in hidden_commands:
 		return "command not found: %s\nTry [color=purple]help[/color] to see available commands/apps\n" % command_str
 	
-	history.push_back(input)
-	history_index = -1 # Reset history navigation
 	var command: Command
 	if command_str in commands:
 		command = commands[command_str]
