@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4cjl63ojufpk"]
+
+[ext_resource type="Script" path="res://scenes/terminal/apps/calibrate/calibrate.gd" id="1_2i7rp"]
+[ext_resource type="PackedScene" uid="uid://bx5n8s3a0lehm" path="res://scenes/terminal/windows/success_display.tscn" id="2_3ylya"]
+[ext_resource type="PackedScene" uid="uid://oy7q06s10nhd" path="res://scenes/terminal/apps/calibrate/shrinking_btn.tscn" id="2_73eu1"]
+
+[node name="Calibrate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2i7rp")
+ShrinkingBtnScene = ExtResource("2_73eu1")
+
+[node name="Start" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartBtn" type="Button" parent="Start"]
+layout_mode = 2
+text = " Start Calibration "
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Main"]
+layout_mode = 1
+offset_right = 79.0
+offset_bottom = 24.0
+text = "Left: 10"
+
+[node name="Rects" type="Control" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="SuccessDisplay" parent="." instance=ExtResource("2_3ylya")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Start/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

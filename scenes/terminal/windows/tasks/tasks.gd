@@ -1,7 +1,9 @@
 extends Control
 
+@export var TaskLineScene: PackedScene
 
-@onready var list: ItemList = %ItemList
+@onready var list: VBoxContainer = %ItemList
+
 @onready var timer_lbl: Label = %TimerLbl
 
 # Called when the node enters the scene tree for the first time.
@@ -32,10 +34,20 @@ func _on_task_completed(task: TaskData) -> void:
 	
 
 func update_list() -> void:
-	list.clear()
+	# clear
+	for child in list.get_children():
+		child.queue_free()
+	# add tasks
 	for task: TaskData in TaskManager.todo:
-		list.add_item(task.title)
+		var line: TaskLine = TaskLineScene.instantiate()
+		line.task = task
+		line.pressed.connect(_on_task_line_pressed)
+		list.add_child(line)
 
 
 func _on_item_list_item_selected(index: int) -> void:
+	TaskManager.highlight_index(index)
+
+
+func _on_task_line_pressed(index: int) -> void:
 	TaskManager.highlight_index(index)

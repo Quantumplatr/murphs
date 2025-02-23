@@ -62,5 +62,4 @@ func _on_timer_timeout() -> void:
 	create_tasks(1)
 
 func highlight_index(i: int) -> void:
-	print(i, tasks[i].title)
 	task_highlighted.emit(tasks[i])

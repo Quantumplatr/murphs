@@ -44,8 +44,8 @@ func rand_project() -> Project:
 	return (randi() % (Project.size() - 1)) + 1
 
 func rand_dHSLA() -> Vector4:
-	const MIN := 10.0
-	const MAX := 40.0
+	const MIN := 20.0
+	const MAX := 50.0
 	const NEG_SCALE := -0.5
 	var dHSLA: Vector4 = Vector4(
 		randf_range(MIN,MAX),

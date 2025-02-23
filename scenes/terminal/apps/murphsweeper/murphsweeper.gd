@@ -4,7 +4,7 @@ extends App
 @onready var flagged_lbl: Label = %FlaggedLbl
 @onready var cleared_lbl: Label = %ClearedLbl
 
-@onready var success_display: VBoxContainer = %SuccessDisplay
+@onready var success_display: Control = %SuccessDisplay
 
 @export var cols: int = 12
 @export var rows: int = 6
@@ -144,7 +144,3 @@ func success() -> void:
 	grid.hide()
 	success_display.show()
 	AppManager.success()
-
-
-func _on_close_btn_pressed() -> void:
-	AppManager.close_app()

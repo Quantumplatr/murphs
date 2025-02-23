@@ -12,6 +12,28 @@
 
 <!-- mtoc-end -->
 
+## v0.2.0-alpha - 2025-02-22
+
+### Features
+
+- Calibration app and tasks added
+
+## v0.1.3-alpha - 2025-02-22
+
+### Changes
+
+- Improved task lines and modal
+
+## v0.1.2-alpha - 2025-02-22
+
+### Features
+
+- Inline task change indicators
+
+### Fixes
+
+- Fix failed app modal bug
+
 ## v0.1.1-alpha - 2025-02-22
 
 ### Features

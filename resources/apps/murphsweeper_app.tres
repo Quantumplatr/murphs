@@ -8,7 +8,7 @@
 script = ExtResource("1_6wo4b")
 display_name = "Murphsweeper"
 command = "sweep"
-description = "Clear away valid cells"
+description = "Clear away safe cells"
 scene = ExtResource("1_nwqt7")
 task_gen_string = "Sweep %s"
 project = 0

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AppData" load_steps=4 format=3 uid="uid://odxqd3dasqw3"]
+
+[ext_resource type="AudioStream" uid="uid://cm6ipedf5qarb" path="res://assets/audio/music/ricochet/Chiptune Vol3 Ricochet Main.wav" id="1_h7k0b"]
+[ext_resource type="PackedScene" uid="uid://d4cjl63ojufpk" path="res://scenes/terminal/apps/calibrate/calibrate.tscn" id="1_lutyh"]
+[ext_resource type="Script" path="res://resources/custom/app_data/app_data.gd" id="2_74j04"]
+
+[resource]
+script = ExtResource("2_74j04")
+display_name = "Calibration"
+command = "calibrate"
+description = "Calibrate a project"
+scene = ExtResource("1_lutyh")
+task_gen_string = "Calibrate %s"
+project = 0
+requires_project = true
+music = ExtResource("1_h7k0b")

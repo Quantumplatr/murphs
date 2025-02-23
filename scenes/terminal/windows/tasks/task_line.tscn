@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci6klblmi5x2c"]
+
+[ext_resource type="Script" path="res://scenes/terminal/windows/tasks/task_line.gd" id="1_dbdsd"]
+
+[node name="TaskLine" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dbdsd")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.5)
+text = "test a super long name that's really long"
+flat = true
+alignment = 0
+text_overrun_behavior = 3
+
+[node name="dHSLA" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+text = "++--"
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -41,9 +41,10 @@ var commands: Dictionary = {
 	"whoami": Command.new(whoami, "Shows the logged in user"),
 }
 var hidden_commands: Dictionary = {
+	"cat": commands["read"],
 	"dev_lose": Command.new(lose, "Lose the game"),
 	"dev_restart": Command.new(restart, "Restart the game"),
-	"cat": commands["read"],
+	"dev_task": Command.new(add_tasks, "Create tasks"),
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -160,6 +161,12 @@ func sanitize_path(input: String) -> String:
 
 
 
+func add_tasks(input: String = "") -> String:
+	var num := 1
+	if input != "":
+		num = int(input)
+	TaskManager.create_tasks(num)
+	return ""
 
 
 func cd(input: String = "") -> String:
