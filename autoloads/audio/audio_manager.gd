@@ -3,6 +3,7 @@ extends Node
 @export var fail_notif: AudioStream
 @export var ping_notif: AudioStream
 @export var success_notif: AudioStream
+@export var game_over_notif: AudioStream
 
 @export var game_over_music: AudioStream
 
@@ -24,7 +25,7 @@ var spooky := AudioServer.get_bus_index("Spooky")
 var spooky_vol := 0.0
 const SPOOKY_SPEED := 0.5
 
-enum Sfx { KEYPRESS, CLICK, SUCCESS, FAIL, PING }
+enum Sfx { KEYPRESS, CLICK, SUCCESS, FAIL, PING, GAME_OVER }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -112,6 +113,9 @@ func play_sfx(sfx: Sfx) -> void:
 			notif_player.play()
 		Sfx.SUCCESS:
 			notif_player.stream = success_notif
+			notif_player.play()
+		Sfx.GAME_OVER:
+			notif_player.stream = game_over_notif
 			notif_player.play()
 
 func play_music(stream: AudioStream) -> void:

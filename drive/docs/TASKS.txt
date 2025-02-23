@@ -1,0 +1,8 @@
+[b]--- TASKS ---[/b]
+[wave]Murph's[/wave] assigns you tasks every few seconds for you to complete. Your tasks are listed in the upper left window labeled "Tasks". Clicking on a task will open a modal showing it in more detail. You'll see the results of completing a task in terms of the change to your HSLA stats (0/+/- inline or the actual values in the modal). There are no deadlines to get tasks done.
+
+[b]- Completing Tasks -[/b]
+Each task is completed by running the specified app on the specified project (e.g. [color=purple]sweep Tau[/color]). Simply start the app on the appropriate project, then complete the app's requirements. Refining tasks are special in that you'll have to refine the number specified within the task. See [color=steel_blue]~/docs/apps/[/color] for more details about how to use applications.
+
+[b]- Results -[/b]
+Each task changes 3 of your 4 HSLA stats. There is at most 1 stat that will decrease while the rest increase. Be cautious of this as to not let any stats drop to 0. If there are two duplicate tasks, upon completion, the first of the two is considered completed.

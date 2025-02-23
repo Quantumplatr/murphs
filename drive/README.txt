@@ -2,7 +2,7 @@
 Welcome, valued employee. Here at [wave]Murph's[/wave], your work is very important. So important, in fact, that we cannot disclose what you are actually doing. Simply do the tasks assigned to you, and be content in knowing that you are making all the difference.
 
 [b] - Tasks & Applications - [/b]
-You will see your tasks appear in the window on the left labeled [b]Tasks[/b]. You can click on tasks to learn more about them. Each task will use an application and take a project file (E.g. [color=purple]refine Omega.txt[/color]). Pay attention to the task's details. Some tasks will have no extra details like "Sweep Epsilon". There will be some like "Refine 3s in Omega" where you'll need to be aware to look for 3s.
+You will see your tasks appear in the window on the left labeled [b]Tasks[/b]. You can click on tasks to learn more about them. Each task will use an application and take a project file (E.g. [color=purple]refine Omega[/color]). Pay attention to the task's details. Some tasks will have no extra details like "Sweep Epsilon". There will be some like "Refine 3s in Omega" where you'll need to be aware to look for 3s.
 Go take a look in [color=steel_blue]~/docs[/color] to see details on how to do certain tasks and how to use the applications.
 
 [b] - Your Predecessor - [/b]

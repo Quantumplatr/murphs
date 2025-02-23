@@ -134,7 +134,7 @@ func run(input: String) -> String:
 			history_index = -1 # Reset history navigation
 			return ""
 		AppManager.AppError.MISSING_PROJECT:
-			return "Missing project file\nUsage: %s [PROJECT FILE]\nExample: [color=purple]%s Gamma.txt[/color]\n" % [command_str, command_str]
+			return "Missing project file\nUsage: %s [PROJECT NAME]\nExample: [color=purple]%s Gamma[/color]\n" % [command_str, command_str]
 		AppManager.AppError.NOT_FOUND:
 			pass
 	
@@ -189,7 +189,7 @@ func cd(input: String = "") -> String:
 	return ""
 
 func clear(input: String = "") -> String:
-	display.clear()
+	display.text = "" # .clear() doesn't clear .text
 	return ""
 
 func help(input: String = "") -> String:

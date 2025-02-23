@@ -23,6 +23,8 @@ func restart() -> void:
 func game_over() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	AudioManager.play_music(AudioManager.game_over_music)
+	AudioManager.play_sfx(AudioManager.Sfx.GAME_OVER)
+	TaskManager.stop_timer()
 	game_failed.emit()
 
 func quit() -> void:

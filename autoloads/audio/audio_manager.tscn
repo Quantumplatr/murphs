@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://egg5y2w34hhm"]
+[gd_scene load_steps=16 format=3 uid="uid://egg5y2w34hhm"]
 
 [ext_resource type="Script" path="res://autoloads/audio/audio_manager.gd" id="1_c1tec"]
 [ext_resource type="AudioStream" uid="uid://cb5qj8kt2abnd" path="res://assets/audio/sfx/non_loop/notifications/fail/Signal Negative Wood Chimes A.wav" id="2_7hclx"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://d1uki1k5w3lkw" path="res://assets/audio/ambient/Quantum Fluctuations Loop.wav" id="4_2l3oj"]
 [ext_resource type="AudioStream" uid="uid://cqti24waode7h" path="res://assets/audio/sfx/non_loop/notifications/success/Signal Positive Wood Chimes B.wav" id="4_lmj2r"]
 [ext_resource type="AudioStream" uid="uid://bf4hocq2kkvow" path="res://assets/audio/sfx/loop/Horror Static Loop.wav" id="5_0xa61"]
+[ext_resource type="AudioStream" uid="uid://7x7tl6alt0x0" path="res://assets/audio/sfx/non_loop/notifications/game_over/Glitch A.wav" id="5_dcwy2"]
 [ext_resource type="AudioStream" uid="uid://vu0m8wlf51gu" path="res://assets/audio/sfx/non_loop/clicks/click1.ogg" id="5_xwo87"]
 [ext_resource type="AudioStream" uid="uid://jadh53422si8" path="res://assets/audio/sfx/non_loop/clicks/click2.ogg" id="6_4evsn"]
 [ext_resource type="AudioStream" uid="uid://ldnbcfup6v6d" path="res://assets/audio/sfx/non_loop/clicks/click4.ogg" id="8_l7gci"]
@@ -28,6 +29,7 @@ script = ExtResource("1_c1tec")
 fail_notif = ExtResource("2_7hclx")
 ping_notif = ExtResource("3_hi8fr")
 success_notif = ExtResource("4_lmj2r")
+game_over_notif = ExtResource("5_dcwy2")
 game_over_music = ExtResource("5_0xa61")
 
 [node name="Ambient" type="Node" parent="."]

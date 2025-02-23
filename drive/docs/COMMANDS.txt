@@ -1,0 +1,7 @@
+[b]--- COMMANDS ---[/b]
+Commands are inputs to the console used for navigating your computer system. The most important ones are [color=purple]ls[/color], [color=purple]cd[/color], and [color=purple]read[/color]. You've likely tried all three of those out if you are reading this file. These 3 will help you navigate and view your system files. To see all available commands, you can always use [color=purple]help[/color].
+
+[b]- Usage -[/b]
+Every command/app takes the form:
+	[color=purple][lb]COMMAND/APP[rb] [lb]INPUT[rb][/color]
+Input is not always required for a command. If it is required, it will notify you if you try to use it without an input. See [color=steel_blue]~/BASICS.txt[/color] for some examples.

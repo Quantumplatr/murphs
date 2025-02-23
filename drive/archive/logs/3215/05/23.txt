@@ -4,4 +4,4 @@ User: 0313
 ---
 Hey [b]0314[/b]. I hope you found me here. This is technically an illegal log. If [wave]Murph's[/wave] finds out about this, things won't go well for me. What I need you to know, is that I've cracked the encryption. You'll have to use the [color=purple]sudo[/color] command to enter the password in. I've hidden the password in a super secret log. If you recognize the [color=purple]famous math constant[/color] that starts with your user number, go follow the logs using that constant.
 
-[encrypted]If you're here, I know you've cracked the encryption.[/encrypted]
+[encrypted]If you're here, I know you've cracked the encryption. I don't think I'll be around long enough to solve the rest of what's going on here. I think they're going to get me... Anyways, that's besides the point. I noticed something though. The encrypted file in ~/archive/users is from the VERY FIRST employee. Good luck, 0314. Do what I couldn't.[/encrypted]

@@ -1,0 +1,5 @@
+[b]--- Calibration ---[/b]
+Calibration is the simplest of the apps. Simply, click each square. If any squares disappear, you fail.
+
+[b]- Example -[/b]
+If you have the task "Calibrate Rho", type [color=purple]calibrate Rho[/color] then click all squares.

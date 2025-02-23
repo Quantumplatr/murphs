@@ -4,7 +4,7 @@ extends Node
 enum Levels { BASIC, ADMIN, VULGAR }
 const Passwords = {
 	"BRKYZGMJM": Levels.BASIC,
-	"n0thingC@nG0Wr0ng!": Levels.ADMIN,
+	"n0thingC@nG0Wr0ng1": Levels.ADMIN,
 	"cuss": Levels.VULGAR,
 }
 const labels = {

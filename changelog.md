@@ -12,13 +12,23 @@
 
 <!-- mtoc-end -->
 
-## Unreleased
+## v0.4.0-alpha - 2025-02-23
+
+### Features
+
+- archive and lore flushed out
+- Game over SFX
+
+## v0.3.0-alpha - 2025-02-22
 
 ### Features
 
 - Links in credits work
 - L stat affects Murphsweeper
 - L stat affects Calibration
+- Refiner app functional
+- Refiner app tasks
+- L stat affects Refiner
 
 ## v0.2.0-alpha - 2025-02-22
 

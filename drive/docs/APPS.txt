@@ -1,0 +1,5 @@
+[b]--- APPS ---[/b]
+Applications are primarily used for completing tasks. Starting an application will open it in the "Main" window. Applications related to tasks will require a project name (e.g. [color=purple]refine Delta[/color] compared to just [color=purple]settings[/color]). See available apps with the [color=purple]help[/color] command.
+
+[b]- Settings & Extras -[/b]
+These apps are not within the context of the game and are meant for actual game settings and extras.

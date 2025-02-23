@@ -8,6 +8,9 @@ enum Project {
 	GAMMA = 3,
 	OMEGA = 4,
 	TAU = 5,
+	IOTA = 6,
+	RHO = 7,
+	ZETA = 8
 }
 
 static var PROJECT_NAMES := {
@@ -16,6 +19,9 @@ static var PROJECT_NAMES := {
 	Project.GAMMA: "Gamma",
 	Project.OMEGA: "Omega",
 	Project.TAU: "Tau",
+	Project.IOTA: "Iota",
+	Project.RHO: "Rho",
+	Project.ZETA: "Zeta",
 }
 
 enum TaskGenTypes { STRING, PROJECT, DIGIT }

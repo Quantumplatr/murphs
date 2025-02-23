@@ -1,0 +1,8 @@
+[b]--- Refiner ---[/b]
+Refiner is a simple but sensitive application. Your work within it is very important. Pay [i]very[/i] close attention to the refining tasks. The refiner is dependent on the tasks. If you refine a number in a project with no relevant task, you will fail.
+
+[b]- Controls -[/b]
+Simply click the correct numbers, but not the wrong numbers.
+
+[b]- Example -[/b]
+If you have the task "Refine 3s in Omega", start the refiner with [color=purple]refine Omega[/color] and then click [i]all[/i] 3s. 
