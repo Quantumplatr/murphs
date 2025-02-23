@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://drd5i6yi61beq"]
+
+[ext_resource type="PackedScene" uid="uid://2qyjmergbweq" path="res://scenes/terminal/windows/window.tscn" id="1_7fqs3"]
+[ext_resource type="Script" path="res://scenes/terminal/modals/game_win/game_win.gd" id="1_by6gp"]
+[ext_resource type="PackedScene" uid="uid://buk5cqlpcfcri" path="res://scenes/terminal/windows/graphs/graphs.tscn" id="3_fvahi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s7m7"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.407, 0.743, 0.658, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1j1nt"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.407, 0.743, 0.658, 1)
+
+[node name="GameWin" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_by6gp")
+
+[node name="Window" parent="." instance=ExtResource("1_7fqs3")]
+custom_minimum_size = Vector2(237, 60)
+layout_mode = 2
+title = "Nothing Went Wrong"
+color = Color(0.407332, 0.742735, 0.657785, 1)
+show_background = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="SuccessLbl" type="RichTextLabel" parent="Window/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "[color=#68bda8][wave] __[/wave]                             
+[wave]/ _\\_   _  ___ ___ ___  ___ ___ [/wave]
+[wave]\\ \\| | | |/ __/ __/ _ \\/ __/ __|[/wave]
+[wave]_\\ \\ |_| | (_| (_|  __/\\__ \\__ \\[/wave]
+[wave]\\__/\\__,_|\\___\\___\\___||___/___/[/wave]
+[/color]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="OutroLbl" type="RichTextLabel" parent="Window/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Against all odds, you've defined Murphy's Law and nothing went wrong. You successfully completed [wave]Murph's[/wave] ritual. The ritual destroyed the systems the robot rulers put in place to subdue humans. Society eventually reforms and you live out your life watching sunsets on the beach."
+fit_content = true
+
+[node name="Stats" type="HBoxContainer" parent="Window/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Graphs" parent="Window/VBoxContainer/Stats" instance=ExtResource("3_fvahi")]
+layout_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="Window/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BeFreeBtn" type="Button" parent="Window/VBoxContainer/Actions"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0377702, 0.0759321, 0.0861049, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_1s7m7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1j1nt")
+text = "Be Free"
+
+[connection signal="pressed" from="Window/VBoxContainer/Actions/BeFreeBtn" to="." method="_on_be_free_btn_pressed"]

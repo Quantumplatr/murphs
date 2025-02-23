@@ -63,12 +63,6 @@ func spawn_rect() -> void:
 	b.clicked.connect(_on_clicked)
 	rects.add_child(b)
 	
-	# Randomize position
-	var rect: Rect2 = get_rect()
-	b.position = Vector2(
-		randf_range(0, rect.size.x - b.size.x),
-		randf_range(0, rect.size.y - b.size.y)
-	)
 
 func _on_fail() -> void:
 	timer.stop()

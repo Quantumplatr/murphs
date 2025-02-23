@@ -6,6 +6,7 @@ extends Node
 @export var game_over_notif: AudioStream
 
 @export var game_over_music: AudioStream
+@export var game_win_music: AudioStream
 
 @onready var keypress_player: AudioStreamPlayer = %KeypressPlayer
 @onready var click_player: AudioStreamPlayer = %ClickPlayer
@@ -25,7 +26,7 @@ var spooky := AudioServer.get_bus_index("Spooky")
 var spooky_vol := 0.0
 const SPOOKY_SPEED := 0.5
 
-enum Sfx { KEYPRESS, CLICK, SUCCESS, FAIL, PING, GAME_OVER }
+enum Sfx { KEYPRESS, CLICK, SUCCESS, FAIL, PING, GAME_OVER, GAME_WIN }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -75,6 +76,8 @@ func update_volumes():
 	var ambient_vol := linear_to_db(SettingsManager.settings.ambient_volume * SettingsManager.settings.master_volume)
 	AudioServer.set_bus_volume_db(ambient, ambient_vol)
 
+func stop_spooky() -> void:
+	danger_loop_player.stop()
 func update_spooky(delta: float) -> void:
 	var min_HSLA: float = min(
 		Sections.hallucination,

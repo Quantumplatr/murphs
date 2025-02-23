@@ -12,12 +12,13 @@
 
 <!-- mtoc-end -->
 
-## v0.4.0-alpha - 2025-02-23
+## v1.0.0 - 2025-02-23
 
 ### Features
 
 - archive and lore flushed out
 - Game over SFX
+- End game implemented
 
 ## v0.3.0-alpha - 2025-02-22
 

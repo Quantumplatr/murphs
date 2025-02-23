@@ -9,6 +9,7 @@ extends Control
 
 @export var failed_modal: PackedScene
 @export var game_over_modal: PackedScene
+@export var game_win_modal: PackedScene
 @export var task_info_modal: PackedScene
 
 
@@ -23,6 +24,7 @@ func _ready() -> void:
 	AppManager.started.connect(_start_app)
 	AppManager.failed.connect(_fail_app)
 	GameManager.game_failed.connect(_game_failed)
+	GameManager.game_won.connect(_game_won)
 	TaskManager.task_highlighted.connect(_on_show_task)
 	TaskManager.create_tasks(initial_tasks)
 	_start_app(AppManager.current)
@@ -54,7 +56,14 @@ func _game_failed():
 	super_modals.add_child(m)
 	m.grab_focus()
 
+func _game_won():
+	super_modals.show()
+	var m: Control = game_win_modal.instantiate()
+	super_modals.add_child(m)
+	m.grab_focus()
+
 func _on_show_task(task: TaskData) -> void:
 	var m: TaskInfoModal = task_info_modal.instantiate()
 	m.task = task
 	modals.add_child(m)
+	m.grab_focus()

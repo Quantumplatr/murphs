@@ -1,6 +1,7 @@
 extends Node
 
 signal game_failed
+signal game_won
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,17 @@ func game_over() -> void:
 	AudioManager.play_sfx(AudioManager.Sfx.GAME_OVER)
 	TaskManager.stop_timer()
 	game_failed.emit()
+
+func game_win() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Sections.stop()
+	AppManager.close_app()
+	AudioManager.stop_spooky()
+	AudioManager.play_music(AudioManager.game_win_music)
+	AudioManager.play_sfx(AudioManager.Sfx.GAME_WIN)
+	TaskManager.stop_timer()
+	game_won.emit()
+
 
 func quit() -> void:
 	# TODO: save?

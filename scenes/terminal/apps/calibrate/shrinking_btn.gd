@@ -11,6 +11,13 @@ var speed: float = 10.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	size = start_size
+	
+	# Randomize position
+	var rect: Rect2 = get_parent_control().get_rect()
+	position = Vector2(
+		randf_range(0, rect.size.x - size.x),
+		randf_range(0, rect.size.y - size.y)
+	)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

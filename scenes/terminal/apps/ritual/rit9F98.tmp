@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgfg3x7pke7ah"]
+
+[ext_resource type="Script" path="res://scenes/terminal/apps/ritual/ritual_app.gd" id="1_x0t0v"]
+[ext_resource type="PackedScene" uid="uid://ds8a7ifed1uoe" path="res://scenes/terminal/apps/ritual/Block.tscn" id="2_am4ml"]
+
+[node name="RitualApp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x0t0v")
+
+[node name="StartView" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundLbl" type="RichTextLabel" parent="StartView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[shake][color=#fff4]NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING C[/color][/shake]"
+fit_content = true
+autowrap_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="StartView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="StartView/CenterContainer"]
+layout_mode = 2
+text = " Start the Ritual "
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Block" parent="Main" instance=ExtResource("2_am4ml")]
+layout_mode = 1
+offset_right = 20.0
+
+[node name="Block2" parent="Main" instance=ExtResource("2_am4ml")]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_right = 0.0
+grow_horizontal = 0
+
+[node name="Block3" parent="Main" instance=ExtResource("2_am4ml")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_right = 0.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 1
+
+[node name="Block4" parent="Main" instance=ExtResource("2_am4ml")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+offset_top = -20.0
+offset_right = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="pressed" from="StartView/CenterContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Main/Block" to="." method="_on_block_mouse_entered"]

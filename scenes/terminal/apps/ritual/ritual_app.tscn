@@ -1,17 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgfg3x7pke7ah"]
+[gd_scene load_steps=4 format=3 uid="uid://dgfg3x7pke7ah"]
 
-[ext_resource type="Script" path="res://scenes/terminal/apps/app.gd" id="1_iavow"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ngu3"]
-content_margin_left = 10.0
-content_margin_top = 4.0
-content_margin_right = 10.0
-content_margin_bottom = 4.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+[ext_resource type="Script" path="res://scenes/terminal/apps/ritual/ritual_app.gd" id="1_x0t0v"]
+[ext_resource type="PackedScene" uid="uid://ds8a7ifed1uoe" path="res://scenes/terminal/apps/ritual/Block.tscn" id="2_am4ml"]
+[ext_resource type="PackedScene" uid="uid://oy7q06s10nhd" path="res://scenes/terminal/apps/calibrate/shrinking_btn.tscn" id="2_nv2qj"]
 
 [node name="RitualApp" type="Control"]
 layout_mode = 3
@@ -20,9 +11,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_iavow")
+script = ExtResource("1_x0t0v")
+ShrinkingBtnScene = ExtResource("2_nv2qj")
+BlockScene = ExtResource("2_am4ml")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="StartView" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,15 +24,123 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="RichTextLabel" parent="CenterContainer"]
-visible = false
-layout_mode = 2
+[node name="BackgroundLbl" type="RichTextLabel" parent="StartView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 bbcode_enabled = true
-text = "[shake]The Ritual is coming soon...[/shake]"
+text = "[shake][color=#fff4]NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING CAN GO WRONG NOTHING C[/color][/shake]"
 fit_content = true
-autowrap_mode = 0
+autowrap_mode = 1
 
-[node name="Button" type="Button" parent="CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="StartView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="StartView/CenterContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_2ngu3")
-text = "Start the Ritual"
+text = " Start the Ritual "
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Block" parent="Main" instance=ExtResource("2_am4ml")]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 20.0
+offset_bottom = 0.0
+grow_vertical = 2
+
+[node name="Block2" parent="Main" instance=ExtResource("2_am4ml")]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Block3" parent="Main" instance=ExtResource("2_am4ml")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Block4" parent="Main" instance=ExtResource("2_am4ml")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_top = -2.0
+offset_right = 78.5
+offset_bottom = 22.0
+grow_horizontal = 2
+text = "DO NOT TOUCH RED"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.5
+offset_top = -22.0
+offset_right = 78.5
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SURVIVE"
+horizontal_alignment = 1
+
+[node name="BlockTimer" type="Timer" parent="Main"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="ButtonTimer" type="Timer" parent="Main"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="SuccessTimer" type="Timer" parent="Main"]
+wait_time = 30.0
+
+[connection signal="pressed" from="StartView/CenterContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Main/Block" to="." method="_on_block_mouse_entered"]
+[connection signal="mouse_entered" from="Main/Block2" to="." method="_on_block_mouse_entered"]
+[connection signal="mouse_entered" from="Main/Block3" to="." method="_on_block_mouse_entered"]
+[connection signal="mouse_entered" from="Main/Block4" to="." method="_on_block_mouse_entered"]
+[connection signal="timeout" from="Main/BlockTimer" to="." method="_on_block_timer_timeout"]
+[connection signal="timeout" from="Main/ButtonTimer" to="." method="_on_button_timer_timeout"]
+[connection signal="timeout" from="Main/SuccessTimer" to="." method="_on_success_timer_timeout"]
