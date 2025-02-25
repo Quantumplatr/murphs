@@ -113,9 +113,10 @@ func prompt() -> String:
 
 func run(input: String) -> String:
 	input = input.strip_edges()
-	if len(history) == 0 or history[len(history)-1] != input:
-		history.append(input)
-		history_index = -1 # Reset history navigation
+	if input != "":
+		if len(history) == 0 or history[len(history)-1] != input:
+			history.append(input)
+			history_index = -1 # Reset history navigation
 	
 	# TODO: improve? maybe when commands are resources?
 	if dir.file_exists(sanitize_path(input)):
