@@ -1,0 +1,703 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyxi85ps7c8qp"]
+
+[ext_resource type="PackedScene" uid="uid://mb0u8lfkkqu6" path="res://scenes/terminal/apps/refiner/number.tscn" id="1_0timt"]
+[ext_resource type="Shader" path="res://effects/shaders/crt.gdshader" id="1_2o8k2"]
+[ext_resource type="Script" path="res://assets/cover_art/cover_art.gd" id="1_m3jli"]
+[ext_resource type="PackedScene" uid="uid://maqhqftfs50i" path="res://assets/cover_art/cover_number.tscn" id="2_dr8pa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3gna"]
+shader = ExtResource("1_2o8k2")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.2
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.001
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 0.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.04
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 2.25
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 1.0
+shader_parameter/vignette_opacity = 0.5
+
+[node name="CoverArt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m3jli")
+CoverNumberScene = ExtResource("2_dr8pa")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0377702, 0.0759321, 0.0861049, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+columns = 12
+
+[node name="Number" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number2" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number3" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number4" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number5" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number6" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number7" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number8" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number9" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number10" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number11" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number12" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number13" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number14" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number15" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number16" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number17" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number18" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number19" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number20" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number21" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number22" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number23" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number24" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number25" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number26" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number27" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number28" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number29" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number30" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number31" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number32" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number33" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number34" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number35" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number36" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number37" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number38" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number39" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number40" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number41" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number42" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number43" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number44" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number45" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number46" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number47" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number48" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number49" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number50" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number51" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number52" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number53" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number54" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number55" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number56" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number57" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number58" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number59" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number60" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number61" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number62" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number63" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number64" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number65" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number66" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number67" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number68" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number69" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number70" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number71" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number72" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number73" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number74" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number75" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number76" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number77" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number78" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number79" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number80" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number81" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number82" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number83" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Number84" parent="CenterContainer/GridContainer" instance=ExtResource("1_0timt")]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Grid" type="GridContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 30
+columns = 11
+metadata/_edit_lock_ = true
+
+[node name="Label51" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label52" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label53" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label54" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label55" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label56" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label44" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label5" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label6" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label7" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label8" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label34" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label35" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label36" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label37" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label38" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label39" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label40" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label41" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label42" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label43" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label9" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label10" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label11" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label12" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "M"
+
+[node name="Label13" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "u"
+
+[node name="Label14" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "r"
+
+[node name="Label15" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "p"
+
+[node name="Label16" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "h"
+
+[node name="Label17" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "'"
+
+[node name="Label18" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "s"
+
+[node name="Label19" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label20" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label21" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label22" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label23" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label24" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label25" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label33" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label26" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label29" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label30" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label31" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label27" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label46" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label48" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label57" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label58" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label59" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label60" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label61" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label62" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label63" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label64" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Label65" type="Label" parent="CenterContainer/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+
+[node name="Grid2" type="GridContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 30
+columns = 11
+metadata/_edit_lock_ = true
+
+[node name="CRTish" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_m3gna")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0377702, 0.0759321, 0.0861049, 1)
+metadata/_edit_lock_ = true
